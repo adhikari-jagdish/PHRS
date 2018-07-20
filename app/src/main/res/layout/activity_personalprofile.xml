@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="buttonHandler"
+            type="com.vayamtech.healthe_cord.Handler.ButtonHandler">
+
+        </variable>
+
+    </data>
+
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/pp_drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vayamtech.healthe_cord.Activity.PersonalprofileActivity"
+    >
+    <android.support.design.widget.NavigationView
+        android:id="@+id/pp_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/activity_main2_drawer"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        >
+
+    </android.support.design.widget.NavigationView>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorwhite"
+        >
+
+        <LinearLayout
+            android:id="@+id/pp_header_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/pp"  />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pp_header_img">
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pp_header_img"
+                android:orientation="vertical"
+                android:background="@color/colorwhite"
+                >
+                <LinearLayout
+                    android:id="@+id/sl_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_gravity="center"
+                            android:text="Height in cm"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_reg_edittext"
+                            >
+                            <EditText
+                                android:id="@+id/txtheight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorBlack"
+                                android:inputType="number"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                ></EditText>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_height"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/sl_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_height"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Weight in kg"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_reg_edittext"
+                            >
+                            <EditText
+                                android:id="@+id/txtweight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorBlack"
+                                android:inputType="number"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                ></EditText>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_weight"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/sl_bloodGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_weight"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtBloodgroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Blood Group"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_weight="1"
+                            >
+                            <Spinner
+                                android:id="@+id/spinner_Bloodgroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:entries="@array/bloodGroup_arrays"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:background="@mipmap/custom_dropdown"
+                                ></Spinner>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_bloodgroup"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_maritalStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_bloodGroup"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtmaritalStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Marital Status"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_weight="1"
+                            >
+                            <Spinner
+                                android:id="@+id/spinner_maritalStatus"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:entries="@array/maritalStatus_arrays"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:background="@mipmap/custom_dropdown"
+                                ></Spinner>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_maritalstatus"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            <!-- Fields End -->
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_communicationLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_maritalStatus"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtcommunicationLanguage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Communication Language"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_weight="1"
+                            >
+                            <Spinner
+                                android:id="@+id/spinner_communicationLanguage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:entries="@array/commLang_arrays"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:background="@mipmap/custom_dropdown"
+                                ></Spinner>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_commlanguage"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_religion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_communicationLanguage"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtreligion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Religion"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_weight="1"
+                            >
+                            <Spinner
+                                android:id="@+id/spinner_religion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:entries="@array/religion_arrays"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:background="@mipmap/custom_dropdown"
+                                ></Spinner>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_religion"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_foodHabit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_religion"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtfoodHabit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Food Habit"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_weight="1"
+                            >
+                            <Spinner
+                                android:id="@+id/spinner_foodHabit"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:entries="@array/foodHabit_arrays"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:background="@mipmap/custom_dropdown"
+                                ></Spinner>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_foodhabit"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_currentHealthPerception"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_foodHabit"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtcurrentHealthPerception"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Current Health Perception"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_reg_edittext"
+                            >
+                            <EditText
+                                android:id="@+id/et_currentHealthPerception"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorBlack"
+                                android:inputType="text"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                ></EditText>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_healthperception"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_emergencyContactno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_currentHealthPerception"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtemergencyContactno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Emergency Contact Number"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_reg_edittext"
+                            >
+                            <EditText
+                                android:id="@+id/et_emergencyContactno"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorBlack"
+                                android:inputType="text"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                ></EditText>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_emergencycontact"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_trustedPhysician"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_emergencyContactno"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txttrustedPhysician"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Trusted Physician"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_reg_edittext"
+                            >
+                            <EditText
+                                android:id="@+id/et_trustedPhysician"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorBlack"
+                                android:inputType="text"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                ></EditText>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_trustedphysician"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+
+                <!-- Fields Start -->
+
+                <LinearLayout
+                    android:id="@+id/sl_physicianNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/sl_trustedPhysician"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_10">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_3"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtphysicianNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/size_20"
+                            android:layout_gravity="center"
+                            android:text="Physician Number"
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_reg_edittext"
+                            >
+                            <EditText
+                                android:id="@+id/et_physicianNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorBlack"
+                                android:inputType="text"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:paddingLeft="@dimen/_5sdp"
+                                ></EditText>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_weight="0"
+
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/pp_img_physicianno"
+                                android:layout_gravity="right"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fields End -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sl_physicianNumber"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/colorwhite"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    >
+
+                    <Button
+                        android:id="@+id/btnppLogin"
+                        android:layout_width="@dimen/_95sdp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:background="@drawable/regsubmit" />
+                </LinearLayout>
+
+
+            </LinearLayout><!-- Main LinearLayout Ends -->
+
+        </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>
+
+
+</layout>
+
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="buttonHandler"
+            type="com.vayamtech.healthe_cord.Handler.ButtonHandler">
+
+        </variable>
+
+
+    </data>
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/main_drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.vayamtech.healthe_cord.Activity.ImmunizationActivity"
+        >
+    <android.support.design.widget.NavigationView
+        android:id="@+id/main_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/activity_main2_drawer"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        >
+
+    </android.support.design.widget.NavigationView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorwhite"
+            >
+
+            <GridView
+                android:id="@+id/simpleGridView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:footerDividersEnabled="false"
+                android:padding="@dimen/_1sdp"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"/>
+
+        </RelativeLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+</layout>
+

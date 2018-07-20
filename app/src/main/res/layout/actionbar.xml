@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+    <TableRow>
+        <TextView
+            android:id="@+id/action_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/_17ssp"
+            android:textColor="@color/colorwhite"
+            android:padding="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:id="@+id/btnLogout"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/colorwhite"
+            />
+
+
+    </TableRow>
+
+</TableLayout>

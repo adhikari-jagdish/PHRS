@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vayamtech.healthe_cord.Fragment.HeridiatoryConcern_motherFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:weightSum="100"
+
+        android:id="@+id/ll_HeridiatoryConcern_main">
+        <ScrollView
+            android:id="@+id/sv_hc_mother_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="90"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mother side - Blood Relation Only"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Asthma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Asthma" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Cancer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Cancer" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_ColorBlindness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Color Blindness" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Diabetes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Diabetes" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Hypertension"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Hypertension" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_HeartDisease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Heart Disease" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_KidneyDisease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Kidney Disease" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_BloodDisorder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Blood Disorder" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_hemophilia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Hemophilia" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_anemia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Anemia" />
+
+                <Button
+                    android:id="@+id/btnImmunizationSubmit"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/regsubmit"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

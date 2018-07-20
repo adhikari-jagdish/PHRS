@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="buttonHandler"
+            type="com.vayamtech.healthe_cord.Handler.ButtonHandler">
+
+        </variable>
+
+    </data>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.vayamtech.healthe_cord.Activity.RegisterActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Name" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etRname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/colorBlack"
+                    android:background="@android:color/transparent"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_name"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Date of Birth" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etRdob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/colorBlack"
+                    android:editable="false"
+                    android:background="@android:color/transparent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_dob"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginRight="@dimen/size_10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Gender" />
+
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_30"
+                    android:checked="true"
+                    android:text="Male"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/size_30"
+                    android:layout_height="wrap_content"
+                    android:text="Female"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_contactNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_gender"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Contact Number" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etRcontactNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:inputType="number"
+                    android:textColor="@color/colorBlack"
+                    android:background="@android:color/transparent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_contactNo"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="E-mail Id" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etRemailId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorBlack"
+                    android:background="@android:color/transparent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/RnextButton"
+            android:layout_width="match_parent"
+            android:layout_below="@id/ll_email"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/RbtnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6DE688"
+                android:onClick="@{buttonHandler::onClickButton}"
+                android:textColor="@color/colorwhite"
+                android:text="Next"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</layout>
+
+

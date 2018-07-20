@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">HealthE-Cord</string>
+    <string name="title_activity_register">Registration</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_about_us">About Us</string>
+    <string name="registration_title">Registration</string>
+    <string name="spinner_title">Select Country</string>
+    <string name="city">City / Town / Village / Zone</string>
+    <string-array name="country_arrays">
+        <item>India</item>
+        <item>Nepal</item>
+        <item>United States</item>
+        <item>New Zealand</item>
+    </string-array>
+
+    <string-array name="state_arrays">
+        <item>Uttrakhand</item>
+        <item>Uttarpradesh</item>
+        <item>Bagmati</item>
+    </string-array>
+
+    <string-array name="city_arrays">
+        <item>Dheradun</item>
+        <item>Noida</item>
+        <item>Kathmandu</item>
+    </string-array>
+
+    <string-array name="bloodGroup_arrays">
+        <item>O +ve</item>
+        <item>AB -ve</item>
+        <item>B +ve</item>
+    </string-array>
+
+    <string-array name="maritalStatus_arrays">
+        <item>Married</item>
+        <item>Unmarried</item>
+        <item>Divorced</item>
+    </string-array>
+
+    <string-array name="commLang_arrays">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Nepali</item>
+    </string-array>
+
+    <string-array name="religion_arrays">
+        <item>Hindu</item>
+        <item>Christian</item>
+        <item>Muslim</item>
+    </string-array>
+
+    <string-array name="foodHabit_arrays">
+        <item>Regular</item>
+        <item>Irregular</item>
+
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello">Hello World, MainActivity!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_tezt">TeztActivity</string>
+    <string name="title_activity_basic">basicActivity</string>
+    <string name="title_activity_c">cActivity</string>
+
+
+</resources>

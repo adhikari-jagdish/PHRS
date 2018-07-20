@@ -1,0 +1,222 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vayamtech.healthe_cord.Fragment.DiseaseHistory_twoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_DiseaseHistory_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorwhite"
+            >
+
+            <!-- Fields Start -->
+
+            <LinearLayout
+                android:id="@+id/sl_nameofDisease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginTop="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_25"
+                    android:layout_marginBottom="@dimen/size_3"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/txtnameofDisease"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/size_20"
+                        android:layout_gravity="center"
+                        android:text="Name of Disease"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_38sdp"
+                        android:layout_weight="1"
+                        >
+                        <Spinner
+                            android:id="@+id/spinner_nameofDisease"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:entries="@array/foodHabit_arrays"
+                            android:paddingTop="@dimen/_8sdp"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_8sdp"
+                            android:background="@mipmap/custom_dropdown"
+                            ></Spinner>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Fields End -->
+
+
+            <!-- Fields Start -->
+
+            <LinearLayout
+                android:id="@+id/sl_statusofDisease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginTop="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_25"
+                    android:layout_marginBottom="@dimen/size_3"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/txtstatusofDisease"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/size_20"
+                        android:layout_gravity="center"
+                        android:text="Status of Disease"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_38sdp"
+                        android:layout_weight="1"
+                        >
+                        <Spinner
+                            android:id="@+id/spinner_statusofDisease"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:entries="@array/foodHabit_arrays"
+                            android:paddingTop="@dimen/_8sdp"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_8sdp"
+                            android:background="@mipmap/custom_dropdown"
+                            ></Spinner>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Fields End -->
+
+            <!-- Fields Start -->
+
+            <LinearLayout
+                android:id="@+id/ll_DiseaseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/sl_statusofDisease"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginRight="@dimen/size_10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_25"
+                    android:layout_marginBottom="@dimen/size_3"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/size_20"
+                        android:text="Date" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rounded_reg_edittext"
+                    >
+                    <EditText
+                        android:id="@+id/et_DiseaseDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:editable="false"
+                        android:background="@android:color/transparent"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- Fields End -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/colorwhite"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <Button
+                    android:id="@+id/btnDiseaseSubmit"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/regsubmit" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

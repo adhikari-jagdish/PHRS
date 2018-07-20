@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorwhite"
+    tools:context="com.vayamtech.healthe_cord.Activity.RegisterSecActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_25"
+            android:layout_marginBottom="@dimen/size_3"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/size_20"
+                android:text="Address" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_10"
+            android:background="@drawable/rounded_reg_edittext"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/_8sdp"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:textColor="@color/colorBlack"
+                android:background="@android:color/transparent"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sl_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/ll_address"
+        android:layout_marginLeft="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_25"
+            android:layout_marginBottom="@dimen/size_3"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/size_20"
+                android:text="Country" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            >
+            <Spinner
+                android:id="@+id/spinner_Country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/country_arrays"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:background="@mipmap/custom_dropdown"
+                ></Spinner>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/sl_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/sl_country"
+        android:layout_marginLeft="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_25"
+            android:layout_marginBottom="@dimen/size_3"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/size_20"
+                android:text="State" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_10"
+            >
+            <Spinner
+                android:id="@+id/spinner_State"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/state_arrays"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:background="@mipmap/custom_dropdown"
+                ></Spinner>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/sl_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/sl_state"
+        android:layout_marginLeft="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_25"
+            android:layout_marginBottom="@dimen/size_3"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/size_20"
+                android:text="@string/city" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_10"
+            >
+            <Spinner
+                android:id="@+id/spinner_City"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/city_arrays"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:background="@mipmap/custom_dropdown"
+                ></Spinner>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sl_city"
+        android:background="@color/colorwhite"
+        android:layout_marginTop="@dimen/size_25"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/RbtnLogin"
+            android:layout_width="@dimen/_95sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/regsubmit" />
+    </LinearLayout>
+
+</RelativeLayout>

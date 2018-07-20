@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vayamtech.healthe_cord">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.LoginActivity" />
+        <activity
+            android:name=".Activity.ForgotPasswordActivity"
+            android:label="Forgot Password" />
+        <activity
+            android:name=".Activity.RegisterActivity"
+            android:label="@string/registration_title" />
+        <activity
+            android:name=".Activity.RegisterSecActivity"
+            android:label="@string/registration_title" />
+        <activity android:name=".Activity.PersonalprofileActivity" />
+        <activity android:name=".Activity.BehaviouralhealthriskActivity" />
+        <activity android:name=".Activity.DrugAllergyActivity" />
+        <activity android:name=".Activity.SubstanceAllergyActivity" />
+        <activity android:name=".Activity.ImmunizationActivity" />
+        <activity android:name=".Activity.HeridiatoryConcernActivity" />
+        <activity android:name=".Activity.DiseaseHistoryActivity" />
+        <activity android:name=".Activity.TreatmentUndergoneActivity" />
+        <activity android:name=".Activity.SurgicalHistoryActivity" />
+        <activity android:name=".Activity.HealthRecordActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.TabsActivity"></activity>
+    </application>
+
+</manifest>
