@@ -15,7 +15,6 @@ import com.vayamtech.healthe_cord.Activity.LoginActivity;
 import com.vayamtech.healthe_cord.Activity.MainActivity;
 import com.vayamtech.healthe_cord.Activity.RegisterActivity;
 import com.vayamtech.healthe_cord.Activity.RegisterSecActivity;
-import com.vayamtech.healthe_cord.Activity.TabsActivity;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 

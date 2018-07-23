@@ -37,7 +37,7 @@
         <activity android:name=".Activity.SurgicalHistoryActivity" />
         <activity android:name=".Activity.HealthRecordActivity" />
         <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.TabsActivity"></activity>
+        <activity android:name=".Activity.RadiologicalInvestigationActivity"></activity>
     </application>
 
 </manifest>
