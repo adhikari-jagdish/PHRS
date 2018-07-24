@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.vayamtech.healthe_cord.Fragment.LabReport_oneFragment">
+
+    <LinearLayout
+        android:id="@+id/ll_LabReport_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_LabReport_fab"
+        android:layout_width="match_parent"
+        android:layout_below="@id/ll_LabReport_content"
+        android:gravity="right"
+        android:padding="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnfab_LabReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="normal"
+            android:layout_marginBottom="@dimen/_2sdp"
+            app:backgroundTint="@color/colorResetPass"
+            app:srcCompat="@drawable/ic_add"
+            tools:ignore="VectorDrawableCompat" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_add"
+        android:layout_below="@id/ll_LabReport_fab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="right"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

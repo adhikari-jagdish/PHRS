@@ -39,7 +39,7 @@
         android:background="@color/colorwhite"
         >
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/pp_header_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,11 +47,26 @@
             >
 
             <ImageView
+                android:id="@+id/img_pp_header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_150sdp"
                 android:adjustViewBounds="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/pp"  />
-        </LinearLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_pp_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:clickable="true"
+                app:fabSize="mini"
+                android:src="@android:drawable/ic_menu_camera"
+                android:layout_gravity="bottom|right|end"
+                />
+
+        </FrameLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -745,7 +760,7 @@
                                 android:layout_weight="1"
                                 android:background="@android:color/transparent"
                                 android:textColor="@color/colorBlack"
-                                android:inputType="text"
+                                android:inputType="number"
                                 android:paddingBottom="@dimen/_2sdp"
                                 android:paddingLeft="@dimen/_5sdp"
                                 ></EditText>
@@ -907,7 +922,7 @@
                                 android:layout_weight="1"
                                 android:background="@android:color/transparent"
                                 android:textColor="@color/colorBlack"
-                                android:inputType="text"
+                                android:inputType="number"
                                 android:paddingBottom="@dimen/_2sdp"
                                 android:paddingLeft="@dimen/_5sdp"
                                 ></EditText>

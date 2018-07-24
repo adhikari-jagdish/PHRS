@@ -82,7 +82,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     myIntent = new Intent(view.getContext(), SubstanceAllergyActivity.class);
                 }
                 if(position == 4){
-                    myIntent = new Intent(view.getContext(), TabsActivity.class);
+                    myIntent = new Intent(view.getContext(), HeridiatoryConcernActivity.class);
                 }
                 if(position == 5){
                     myIntent = new Intent(view.getContext(), ImmunizationActivity.class);
@@ -98,6 +98,18 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 }
                 if(position == 9){
                     myIntent = new Intent(view.getContext(), HealthRecordActivity.class);
+                }
+                if(position == 10){
+                    myIntent = new Intent(view.getContext(), RadiologicalInvestigationActivity.class);
+                }
+                if(position == 11){
+                    myIntent = new Intent(view.getContext(), PrescriptionActivity.class);
+                }
+                if(position == 12){
+                    myIntent = new Intent(view.getContext(), DiagnosticInvestigationActivity.class);
+                }
+                if(position == 13){
+                    myIntent = new Intent(view.getContext(), LabReportActivity.class);
                 }
                 startActivity(myIntent);
             }

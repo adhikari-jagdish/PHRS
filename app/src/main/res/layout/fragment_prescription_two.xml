@@ -1,0 +1,207 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vayamtech.healthe_cord.Fragment.Prescription_twoFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <LinearLayout
+        android:id="@+id/ll_Prescription_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorwhite"
+        >
+
+    <!-- Fields Start -->
+
+    <LinearLayout
+        android:id="@+id/ll_PrescriptionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_25"
+            android:layout_marginBottom="@dimen/size_3"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/size_20"
+                android:fontFamily="@font/robotoregular"
+                android:layout_gravity="center"
+                android:text="Prescription Name"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_10"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/txtPrescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="text"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    ></EditText>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- Fields End -->
+
+        <!-- Fields Start -->
+        <LinearLayout
+            android:id="@+id/ll_PrescriptionDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_PrescriptionName"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Date" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/et_PrescriptionDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:textColor="@color/colorBlack"
+                    android:editable="false"
+                    android:background="@android:color/transparent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Fields End -->
+
+        <!-- Fields Start -->
+
+        <LinearLayout
+            android:id="@+id/sl_PrescriptionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:fontFamily="@font/robotoregular"
+                    android:layout_gravity="center"
+                    android:text="Description"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_reg_edittext"
+                    >
+                    <EditText
+                        android:id="@+id/txtPrescriptionDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:inputType="textMultiLine"
+                        android:gravity="top"
+                        android:textColor="@color/colorBlack"
+                        android:background="@android:color/transparent"
+                        ></EditText>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- Fields End -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/colorwhite"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btnPrescriptionSubmit"
+                android:layout_width="@dimen/_95sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/regsubmit" />
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vayamtech.healthe_cord">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
@@ -37,7 +42,10 @@
         <activity android:name=".Activity.SurgicalHistoryActivity" />
         <activity android:name=".Activity.HealthRecordActivity" />
         <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.RadiologicalInvestigationActivity"></activity>
+        <activity android:name=".Activity.RadiologicalInvestigationActivity" />
+        <activity android:name=".Activity.PrescriptionActivity" />
+        <activity android:name=".Activity.LabReportActivity" />
+        <activity android:name=".Activity.DiagnosticInvestigationActivity"></activity>
     </application>
 
 </manifest>
