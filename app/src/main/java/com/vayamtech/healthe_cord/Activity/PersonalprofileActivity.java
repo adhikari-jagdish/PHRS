@@ -1,6 +1,7 @@
 package com.vayamtech.healthe_cord.Activity;
 
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -37,13 +38,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static android.media.MediaRecorder.VideoSource.CAMERA;
+import static java.security.AccessController.getContext;
 
 public class PersonalprofileActivity extends BaseActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private ImageView pp_header_img;
+    private CircleImageView prof_pic;
     private static final String IMAGE_DIRECTORY ="/demo";
     private int GALLERY = 1, CAMERA = 2, PIC_CROP = 3;
     Uri contentURI;
@@ -52,6 +56,9 @@ public class PersonalprofileActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personalprofile);
+
+
+
 
         //For fullscreen mode
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -122,6 +129,9 @@ public class PersonalprofileActivity extends BaseActivity {
                                 choosePhotoFromGallary();
                                 break;
                             case 1:
+
+
+
                                 takePhotoFromCamera();
                                 break;
                         }
@@ -147,7 +157,7 @@ public class PersonalprofileActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        pp_header_img = findViewById(R.id.img_pp_header);
+        prof_pic = findViewById(R.id.profile_pic);
         if (resultCode == this.RESULT_CANCELED) {
             return;
         }
@@ -165,12 +175,12 @@ public class PersonalprofileActivity extends BaseActivity {
             Bundle extras = data.getExtras();
             //get the cropped bitmap
             Bitmap thePic = extras.getParcelable("data");
-            pp_header_img.setImageBitmap(thePic);
+            prof_pic.setImageBitmap(thePic);
 
         }
         else if (requestCode == CAMERA) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-            pp_header_img.setImageBitmap(thumbnail);
+            prof_pic.setImageBitmap(thumbnail);
             saveImage(thumbnail);
             Toast.makeText(PersonalprofileActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }
@@ -202,7 +212,7 @@ public class PersonalprofileActivity extends BaseActivity {
 
                 String path = saveImage(bitmap);
                 Toast.makeText(PersonalprofileActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
-                pp_header_img.setImageBitmap(bitmap);
+                prof_pic.setImageBitmap(bitmap);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -251,30 +261,14 @@ public class PersonalprofileActivity extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        switch (requestCode){
+        if(requestCode == 2)
+        {
 
 
         }
 
     }
-    private void askForPermission(String permission, Integer requestCode) {
-        if (ContextCompat.checkSelfPermission(PersonalprofileActivity.this, permission) != PackageManager.PERMISSION_GRANTED) {
 
-            // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(PersonalprofileActivity.this, permission)) {
-
-                //This is called if user has denied the permission before
-                //In this case I am just asking the permission again
-                ActivityCompat.requestPermissions(PersonalprofileActivity.this, new String[]{permission}, requestCode);
-
-            } else {
-
-                ActivityCompat.requestPermissions(PersonalprofileActivity.this, new String[]{permission}, requestCode);
-            }
-        } else {
-            Toast.makeText(this, "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
-        }
-    }
 }
 
 

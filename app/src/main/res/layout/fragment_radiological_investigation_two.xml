@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="@dimen/size_10"
-            android:layout_marginTop="@dimen/size_20"
             android:layout_marginRight="@dimen/size_10">
 
             <LinearLayout
@@ -85,7 +84,7 @@
             android:orientation="vertical"
             android:layout_below="@id/sl_RadiologicalInvestigationName"
             android:layout_marginLeft="@dimen/size_10"
-            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginTop="@dimen/_7sdp"
             android:layout_marginRight="@dimen/size_10">
 
             <RelativeLayout
@@ -135,7 +134,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="@dimen/size_10"
-            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginTop="@dimen/_7sdp"
             android:layout_marginRight="@dimen/size_10">
 
             <LinearLayout
@@ -172,7 +171,7 @@
                     <EditText
                         android:id="@+id/txtRadiologicalInvestigationDescription"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="50dp"
                         android:layout_margin="@dimen/_8sdp"
                         android:inputType="textMultiLine"
                         android:gravity="top"
@@ -184,10 +183,53 @@
             </LinearLayout>
         </LinearLayout>
         <!-- Fields End -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10"
+            android:orientation="horizontal"
             android:layout_marginTop="@dimen/_15sdp"
+            >
+
+
+                <EditText
+                    android:id="@+id/etuploadFile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/rounded_reg_edittext"
+                    android:textColorHint="@color/colorBlack"
+                    android:textColor="@color/colorwhite"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/_10sdp"
+                    android:hint="Upload document..."
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    />
+
+           <Button
+               android:layout_width="@dimen/_60sdp"
+               android:layout_height="@dimen/_36sdp"
+               android:text="Select"
+               android:textAllCaps="false"
+               android:textSize="@dimen/_12ssp"
+               android:layout_marginRight="@dimen/_5sdp"
+               android:textColor="@color/colorwhite"
+               android:gravity="center"
+               android:background="@drawable/btn_back"
+               android:padding="@dimen/_5sdp"
+               />
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@color/colorwhite"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_gravity="center"
