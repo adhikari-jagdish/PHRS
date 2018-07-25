@@ -64,10 +64,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:drawableRight="@drawable/icon_create"
                         android:background="@android:color/transparent"
                         android:textColor="@color/colorBlack"
                         android:inputType="text"
-                        android:paddingBottom="@dimen/_2sdp"
                         android:paddingLeft="@dimen/_5sdp"
                         ></EditText>
 
@@ -104,7 +104,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/_140sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/size_10"
                 android:layout_marginRight="@dimen/_10sdp"
@@ -114,6 +114,7 @@
                     android:id="@+id/et_RadiologicalInvestigationDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_calendar"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     android:textColor="@color/colorBlack"
@@ -171,8 +172,8 @@
                     <EditText
                         android:id="@+id/txtRadiologicalInvestigationDescription"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_height="70dp"
+                        android:drawableRight="@drawable/icon_create"
                         android:inputType="textMultiLine"
                         android:gravity="top"
                         android:textColor="@color/colorBlack"

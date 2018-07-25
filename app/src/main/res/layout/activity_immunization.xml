@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/drug_allergy_banner"  />
+                    android:src="@drawable/immunization_banner"  />
             </LinearLayout>
             <FrameLayout
                 android:id="@+id/fragment_immunization_container"

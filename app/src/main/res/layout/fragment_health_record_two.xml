@@ -53,10 +53,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
                     android:inputType="text"
-                    android:paddingBottom="@dimen/_2sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     ></EditText>
 
@@ -180,10 +180,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
                     android:inputType="text"
-                    android:paddingBottom="@dimen/_2sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     ></EditText>
 

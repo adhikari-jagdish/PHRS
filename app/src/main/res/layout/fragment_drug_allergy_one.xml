@@ -13,7 +13,7 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_height="wrap_content"
-        android:background="@color/colorResetPass"
+        android:background="@drawable/details_content_back"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -38,9 +38,6 @@
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorwhite"
             />
-
-
-
 
     </LinearLayout>
 

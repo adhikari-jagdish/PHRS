@@ -63,10 +63,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableRight="@drawable/icon_create"
                             android:background="@android:color/transparent"
                             android:textColor="@color/colorBlack"
                             android:inputType="text"
-                            android:paddingBottom="@dimen/_2sdp"
                             android:paddingLeft="@dimen/_5sdp"
                             ></EditText>
 
@@ -113,6 +113,7 @@
                         android:id="@+id/et_SurgeryProcedureDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/icon_calendar"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:paddingLeft="@dimen/_5sdp"
                         android:textColor="@color/colorBlack"
@@ -171,10 +172,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableRight="@drawable/icon_create"
                             android:background="@android:color/transparent"
                             android:textColor="@color/colorBlack"
                             android:inputType="text"
-                            android:paddingBottom="@dimen/_2sdp"
                             android:paddingLeft="@dimen/_5sdp"
                             ></EditText>
 

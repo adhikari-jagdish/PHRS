@@ -186,6 +186,7 @@
                         android:id="@+id/et_DiseaseDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/icon_calendar"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:paddingLeft="@dimen/_5sdp"
                         android:textColor="@color/colorBlack"

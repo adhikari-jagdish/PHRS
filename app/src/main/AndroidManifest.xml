@@ -31,7 +31,9 @@
         <activity
             android:name=".Activity.RegisterSecActivity"
             android:label="@string/registration_title" />
-        <activity android:name=".Activity.PersonalprofileActivity" />
+        <activity android:name=".Activity.PersonalprofileActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
         <activity android:name=".Activity.BehaviouralhealthriskActivity" />
         <activity android:name=".Activity.DrugAllergyActivity" />
         <activity android:name=".Activity.SubstanceAllergyActivity" />

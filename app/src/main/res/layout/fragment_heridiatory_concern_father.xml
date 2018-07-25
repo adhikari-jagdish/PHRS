@@ -135,6 +135,7 @@
         android:id="@+id/btnImmunizationSubmit"
         android:layout_width="@dimen/_95sdp"
         android:layout_height="@dimen/_45sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:background="@drawable/regsubmit"
         android:layout_gravity="center"
         />

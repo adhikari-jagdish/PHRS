@@ -37,7 +37,8 @@ public AlertDialog alertDialog;
                         ((LoginActivity) mcontext).gotoNext(mcontext, MainActivity.class, false, Bundle.EMPTY, false);
                     }
                     else {
-                        ((BaseActivity) mcontext).showValidationMessage(mcontext, "Email-Id / Password cannot be blank");
+                        ((LoginActivity) mcontext).loginBinding.etEmailId.setError("Enter Email Id");
+
 
                     }
 

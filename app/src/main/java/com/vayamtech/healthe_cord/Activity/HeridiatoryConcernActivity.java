@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -13,9 +14,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.vayamtech.healthe_cord.Adapter.HeridiatoryConcernPageAdapter;
 import com.vayamtech.healthe_cord.Fragment.HeridiatoryConcern_fatherFragment;
 import com.vayamtech.healthe_cord.Fragment.HeridiatoryConcern_motherFragment;
 import com.vayamtech.healthe_cord.R;
@@ -58,29 +61,22 @@ public class HeridiatoryConcernActivity extends BaseActivity implements Navigati
         nv.setNavigationItemSelectedListener(this);
         //Navigation Drawer End
 
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = findViewById(R.id.viewpager);
 
+        // Create an adapter that knows which fragment should be shown on each page
+        HeridiatoryConcernPageAdapter adapter = new HeridiatoryConcernPageAdapter(getSupportFragmentManager());
 
-    }
-    private class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
+        // Set the adapter onto the view pager
+        if (viewPager != null) {
+            viewPager.setAdapter(adapter);
         }
 
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
 
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
+        if (tabLayout != null) {
+            tabLayout.setupWithViewPager(viewPager);
         }
 
 

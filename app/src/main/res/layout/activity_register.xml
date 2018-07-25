@@ -56,11 +56,12 @@
                     android:id="@+id/etRname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:paddingLeft="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:background="@android:color/transparent"/>
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/_5sdp"/>
 
             </RelativeLayout>
 
@@ -103,6 +104,7 @@
                     android:id="@+id/etRdob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_calendar"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     android:textColor="@color/colorBlack"
@@ -193,11 +195,13 @@
                     android:id="@+id/etRcontactNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:background="@android:color/transparent"/>
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/_5sdp"
+                    />
 
             </RelativeLayout>
 
@@ -241,11 +245,12 @@
                     android:id="@+id/etRemailId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:inputType="textEmailAddress"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:background="@android:color/transparent"/>
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="@dimen/_5sdp"/>
 
             </RelativeLayout>
 

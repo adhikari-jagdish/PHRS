@@ -51,6 +51,7 @@ public class PersonalprofileActivity extends BaseActivity {
     private static final String IMAGE_DIRECTORY ="/demo";
     private int GALLERY = 1, CAMERA = 2, PIC_CROP = 3;
     Uri contentURI;
+    Bitmap thumbnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +118,12 @@ public class PersonalprofileActivity extends BaseActivity {
     private void showPictureDialog() {
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
         pictureDialog.setTitle("Select Action");
+        pictureDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
         String[] pictureDialogItems = {
                 "Select photo from Gallery",
                 "Capture photo from Camera"};
@@ -129,9 +136,6 @@ public class PersonalprofileActivity extends BaseActivity {
                                 choosePhotoFromGallary();
                                 break;
                             case 1:
-
-
-
                                 takePhotoFromCamera();
                                 break;
                         }
@@ -179,10 +183,8 @@ public class PersonalprofileActivity extends BaseActivity {
 
         }
         else if (requestCode == CAMERA) {
-            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-            prof_pic.setImageBitmap(thumbnail);
-            saveImage(thumbnail);
-            Toast.makeText(PersonalprofileActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+            thumbnail = (Bitmap) data.getExtras().get("data");
+            performCrop();
         }
     }
 
