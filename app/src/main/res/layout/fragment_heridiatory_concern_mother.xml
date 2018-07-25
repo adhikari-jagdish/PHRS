@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorwhite"
     tools:context="com.vayamtech.healthe_cord.Fragment.HeridiatoryConcern_motherFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -138,6 +139,7 @@
                     android:layout_width="@dimen/_95sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/regsubmit"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_gravity="center"/>
 
             </LinearLayout>

@@ -118,7 +118,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     android:textColor="@color/colorBlack"
-                    android:editable="false"
+                    android:focusable="false"
                     android:background="@android:color/transparent"/>
 
             </RelativeLayout>
@@ -196,13 +196,13 @@
 
 
                 <EditText
-                    android:id="@+id/etuploadFile"
+                    android:id="@+id/etuploadFile_radiological_inv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/rounded_reg_edittext"
                     android:textColorHint="@color/colorBlack"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/colorBlack"
                     android:inputType="textEmailAddress"
                     android:padding="@dimen/_10sdp"
                     android:hint="Upload document..."
@@ -211,6 +211,7 @@
                     />
 
            <Button
+               android:id="@+id/btn_uploadFile_radiological_inv"
                android:layout_width="@dimen/_60sdp"
                android:layout_height="@dimen/_36sdp"
                android:text="Select"

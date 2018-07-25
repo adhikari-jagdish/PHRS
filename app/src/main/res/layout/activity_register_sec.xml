@@ -44,6 +44,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="@dimen/_8sdp"
                 android:inputType="textMultiLine"
+                android:drawableRight="@drawable/icon_create"
                 android:gravity="top"
                 android:textColor="@color/colorBlack"
                 android:background="@android:color/transparent"/>

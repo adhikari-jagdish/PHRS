@@ -108,7 +108,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     android:textColor="@color/colorBlack"
-                    android:editable="false"
+                    android:focusable="false"
                     android:background="@android:color/transparent"/>
 
             </RelativeLayout>

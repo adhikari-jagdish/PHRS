@@ -65,10 +65,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableRight="@drawable/icon_create"
                             android:background="@android:color/transparent"
                             android:textColor="@color/colorBlack"
                             android:inputType="text"
-                            android:paddingBottom="@dimen/_2sdp"
                             android:paddingLeft="@dimen/_5sdp"
                             ></EditText>
 
@@ -80,12 +80,12 @@
             <!-- Fields Start -->
             <LinearLayout
                 android:id="@+id/ll_LabReportDate"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/_140sdp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_below="@id/sl_LabReportName"
                 android:layout_marginLeft="@dimen/size_10"
-                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_marginRight="@dimen/size_10">
 
                 <RelativeLayout
@@ -115,10 +115,11 @@
                         android:id="@+id/et_LabReportDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/icon_calendar"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:paddingLeft="@dimen/_5sdp"
                         android:textColor="@color/colorBlack"
-                        android:editable="false"
+                        android:focusable="false"
                         android:background="@android:color/transparent"/>
 
                 </RelativeLayout>
@@ -135,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="@dimen/size_10"
-                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_marginRight="@dimen/size_10">
 
                 <LinearLayout
@@ -172,8 +173,8 @@
                         <EditText
                             android:id="@+id/txtLabReportDescription"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
-                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_height="70dp"
+                            android:drawableRight="@drawable/icon_create"
                             android:inputType="textMultiLine"
                             android:gravity="top"
                             android:textColor="@color/colorBlack"
@@ -184,6 +185,46 @@
                 </LinearLayout>
             </LinearLayout>
             <!-- Fields End -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_20"
+                android:layout_marginRight="@dimen/size_10"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_15sdp"
+                >
+
+
+                <EditText
+                    android:id="@+id/et_lab_report_uploadFile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/rounded_reg_edittext"
+                    android:textColorHint="@color/colorBlack"
+                    android:textColor="@color/colorwhite"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/_10sdp"
+                    android:hint="Upload document..."
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:text="Select"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center"
+                    android:background="@drawable/btn_back"
+                    android:padding="@dimen/_5sdp"
+                    />
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
