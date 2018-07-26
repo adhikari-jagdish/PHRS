@@ -9,7 +9,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
+import com.vayamtech.healthe_cord.Activity.BehaviouralhealthriskActivity;
+import com.vayamtech.healthe_cord.Activity.MainActivity;
+import com.vayamtech.healthe_cord.Activity.PersonalprofileActivity;
+import com.vayamtech.healthe_cord.Activity.SubstanceAllergyActivity;
 import com.vayamtech.healthe_cord.R;
 
 //*Created by Jagadish on 7/2/2018.*/
@@ -49,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent gotoNext = new Intent(context, nextClass);
         gotoNext.putExtras(bundle);
         if(clearAll)
-            gotoNext.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            gotoNext.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         context.startActivity(gotoNext);
         ((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
@@ -75,6 +80,34 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+    protected void selectDrawerItem(MenuItem menuItem) {
+        switch (menuItem.getItemId())
+        {
+            case R.id.nav_home:
+                gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+
+                break;
+
+            case R.id.nav_camera:
+                gotoNext(this, PersonalprofileActivity.class, false, Bundle.EMPTY, false);
+
+                break;
+
+            case R.id.nav_gallery:
+                gotoNext(this, BehaviouralhealthriskActivity.class, false, Bundle.EMPTY, false);
+
+                break;
+
+            default:
+                gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        }
+
+        // Highlight the selected item has been done by NavigationView
+        menuItem.setChecked(true);
+
+
+
     }
 
 }

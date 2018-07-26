@@ -15,16 +15,18 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vayamtech.healthe_cord.Adapter.ImageAdapter;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 import com.vayamtech.healthe_cord.databinding.ActivityMainBinding;
 
-public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity {
     ActivityMainBinding mainBinding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private NavigationView nv;
     GridView simpleGrid;
     public Integer[] mThumbIds = {
             R.drawable.gv_prof, R.drawable.gv_behavioural_hr,R.drawable.gv_drugallergy,
@@ -50,14 +52,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         //Navigation Drawer Start
         drawerLayout = findViewById(R.id.main_drawerlayout);
+
+        //For three Bar Icon
         mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-
+        //For Back icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = findViewById(R.id.main_navigation);
-        nv.setNavigationItemSelectedListener(this);
+       nv = findViewById(R.id.main_navigation);
+        setupDrawerContent(nv);
         //Navigation Drawer End
 
         simpleGrid = findViewById(R.id.simpleGridView);
@@ -111,11 +115,34 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 if(position == 13){
                     myIntent = new Intent(view.getContext(), LabReportActivity.class);
                 }
+                if(position == 14){
+                    myIntent = new Intent(view.getContext(), DrawerActivity.class);
+                }
                 startActivity(myIntent);
             }
         });
 
     }
+
+    private void setupDrawerContent(NavigationView nv) {
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                selectDrawerItem(menuItem);
+
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(mToggle.onOptionsItemSelected(item))
@@ -126,8 +153,5 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
-    }
+
 }

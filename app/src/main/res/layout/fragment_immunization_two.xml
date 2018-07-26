@@ -175,6 +175,7 @@
                     android:layout_marginRight="@dimen/_10sdp"
                     android:background="@drawable/rounded_reg_edittext"
                     >
+
                     <EditText
                         android:id="@+id/et_immunizationDate"
                         android:layout_width="match_parent"

@@ -50,6 +50,7 @@ public class PersonalprofileActivity extends BaseActivity {
     private CircleImageView prof_pic;
     private static final String IMAGE_DIRECTORY ="/demo";
     private int GALLERY = 1, CAMERA = 2, PIC_CROP = 3;
+    private NavigationView nv;
     Uri contentURI;
     Bitmap thumbnail;
 
@@ -70,29 +71,20 @@ public class PersonalprofileActivity extends BaseActivity {
         TextView title = findViewById(getResources().getIdentifier("action_bar_title", "id", getPackageName()));
         title.setText("Personal Profile");
 
-        NavigationView navigationView = findViewById(R.id.pp_navigation);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                item.setChecked(true);
-
-                drawerLayout.closeDrawers();
-
-                return true;
-            }
-        });
 
         //Navigation Drawer Start
+        NavigationView navigationView = findViewById(R.id.pp_navigation);
+        setupDrawerContent(navigationView);
+
+
         drawerLayout = findViewById(R.id.pp_drawerlayout);
         mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //For Image Selection from Gallery/Camera
 
+        //For Image Selection from Gallery/Camera
         FloatingActionButton fab_cam = findViewById(R.id.fab_pp_camera);
         fab_cam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +93,17 @@ public class PersonalprofileActivity extends BaseActivity {
             }
         });
 
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     @Override

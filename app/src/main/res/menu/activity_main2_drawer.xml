@@ -7,29 +7,79 @@
 
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/nav_icon_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_personalProfile"
+            android:icon="@mipmap/nav_icon_personal_profile"
             android:title="Personal Profile" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_behaviouralHr"
+            android:icon="@mipmap/nav_icon_behavioural_hr"
             android:title="Behavioural Health Risk" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_drugAllergy"
+            android:icon="@mipmap/nav_icon_drug_allergy"
             android:title="Drug Allergy" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:id="@+id/nav_substanceAllergy"
+            android:icon="@mipmap/nav_icon_substance_allergy"
             android:title="Substance Allergy" />
 
         <item
-            android:id="@+id/nav_herediatory_concern"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_herediatoryConcern"
+            android:icon="@mipmap/nav_icon_heridiatory_concern"
             android:title="Herediatory Concern" />
+
+        <item
+            android:id="@+id/nav_immunization"
+            android:icon="@mipmap/nav_icon_immunization"
+            android:title="Immunization" />
+
+        <item
+            android:id="@+id/nav_diseaseHistory"
+            android:icon="@mipmap/nav_icon_disease_history"
+            android:title="Disease History" />
+
+        <item
+            android:id="@+id/nav_treatmentUndergone"
+            android:icon="@mipmap/nav_icon_treatment_undergone"
+            android:title="Treatment Undergone" />
+
+        <item
+            android:id="@+id/nav_surgicalHistory"
+            android:icon="@mipmap/nav_icon_surgical_history"
+            android:title="Surgical History" />
+
+        <item
+            android:id="@+id/nav_healthRecord"
+            android:icon="@mipmap/nav_icon_health_record"
+            android:title="Health Record" />
+
+        <item
+            android:id="@+id/nav_radiologicalInvestigation"
+            android:icon="@mipmap/nav_icon_radiologicalInvestigation"
+            android:title="Radiological Investigation" />
+
+        <item
+            android:id="@+id/nav_prescription"
+            android:icon="@mipmap/nav_icon_prescription"
+            android:title="Prescription" />
+
+        <item
+            android:id="@+id/nav_diagnosticInvestigation"
+            android:icon="@mipmap/nav_icon_diagnostic_investigation"
+            android:title="Diagnostic Investigation" />
+
+        <item
+            android:id="@+id/nav_labReport"
+            android:icon="@mipmap/nav_icon_lab_report"
+            android:title="Lab Report" />
+
+        <item
+            android:id="@+id/nav_shareProfile"
+            android:icon="@mipmap/nav_icon_share_profile"
+            android:title="Share Profile" />
     </group>
 
     <item android:title="More">

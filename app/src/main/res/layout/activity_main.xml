@@ -19,18 +19,8 @@
         android:id="@+id/main_drawerlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.vayamtech.healthe_cord.Activity.ImmunizationActivity"
+        tools:context="com.vayamtech.healthe_cord.Activity.MainActivity"
         >
-    <android.support.design.widget.NavigationView
-        android:id="@+id/main_navigation"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:menu="@menu/activity_main2_drawer"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/navigation_header"
-        >
-
-    </android.support.design.widget.NavigationView>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -47,6 +37,16 @@
                 android:stretchMode="columnWidth"/>
 
         </RelativeLayout>
+        <android.support.design.widget.NavigationView
+            android:id="@+id/main_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:menu="@menu/activity_main2_drawer"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/navigation_header"
+            >
+
+        </android.support.design.widget.NavigationView>
     </android.support.v4.widget.DrawerLayout>
 
 </layout>
