@@ -12,9 +12,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.vayamtech.healthe_cord.Activity.BehaviouralhealthriskActivity;
+import com.vayamtech.healthe_cord.Activity.DiagnosticInvestigationActivity;
+import com.vayamtech.healthe_cord.Activity.DiseaseHistoryActivity;
+import com.vayamtech.healthe_cord.Activity.DrugAllergyActivity;
+import com.vayamtech.healthe_cord.Activity.HealthRecordActivity;
+import com.vayamtech.healthe_cord.Activity.HeridiatoryConcernActivity;
+import com.vayamtech.healthe_cord.Activity.ImmunizationActivity;
+import com.vayamtech.healthe_cord.Activity.LabReportActivity;
 import com.vayamtech.healthe_cord.Activity.MainActivity;
 import com.vayamtech.healthe_cord.Activity.PersonalprofileActivity;
+import com.vayamtech.healthe_cord.Activity.PrescriptionActivity;
+import com.vayamtech.healthe_cord.Activity.RadiologicalInvestigationActivity;
 import com.vayamtech.healthe_cord.Activity.SubstanceAllergyActivity;
+import com.vayamtech.healthe_cord.Activity.SurgicalHistoryActivity;
+import com.vayamtech.healthe_cord.Activity.TreatmentUndergoneActivity;
 import com.vayamtech.healthe_cord.R;
 
 //*Created by Jagadish on 7/2/2018.*/
@@ -46,7 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             public void run() {
                 gotoNext(context, aClass, true, Bundle.EMPTY, false);
             }
-        },1000);
+        },0);
     }
 
     public void gotoNext(Context context, Class nextClass, boolean finish, Bundle bundle, boolean clearAll) {
@@ -86,17 +97,62 @@ public abstract class BaseActivity extends AppCompatActivity {
         {
             case R.id.nav_home:
                 gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
-
                 break;
 
-            case R.id.nav_camera:
+            case R.id.nav_personalProfile:
                 gotoNext(this, PersonalprofileActivity.class, false, Bundle.EMPTY, false);
-
                 break;
 
-            case R.id.nav_gallery:
+            case R.id.nav_behaviouralHr:
                 gotoNext(this, BehaviouralhealthriskActivity.class, false, Bundle.EMPTY, false);
+                break;
 
+            case R.id.nav_drugAllergy:
+                gotoNext(this, DrugAllergyActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_substanceAllergy:
+                gotoNext(this, SubstanceAllergyActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_herediatoryConcern:
+                gotoNext(this, HeridiatoryConcernActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_immunization:
+                gotoNext(this, ImmunizationActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_diseaseHistory:
+                gotoNext(this, DiseaseHistoryActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_treatmentUndergone:
+                gotoNext(this, TreatmentUndergoneActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_surgicalHistory:
+                gotoNext(this, SurgicalHistoryActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_healthRecord:
+                gotoNext(this, HealthRecordActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_radiologicalInvestigation:
+                gotoNext(this, RadiologicalInvestigationActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_prescription:
+                gotoNext(this, PrescriptionActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_diagnosticInvestigation:
+                gotoNext(this, DiagnosticInvestigationActivity.class, false, Bundle.EMPTY, false);
+                break;
+
+            case R.id.nav_labReport:
+                gotoNext(this, LabReportActivity.class, false, Bundle.EMPTY, false);
                 break;
 
             default:

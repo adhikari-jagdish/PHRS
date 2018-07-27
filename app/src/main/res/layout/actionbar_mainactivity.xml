@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
 
-    <TableRow>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <TextView
-            android:id="@+id/action_bar_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_weight="1"
-            android:fontFamily="@font/averagesansregular"
-            android:gravity="center_horizontal"
-            android:paddingTop="@dimen/_8sdp"
-            android:paddingLeft="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_10sdp"
-            android:textColor="@color/colorwhite"
-            android:textSize="@dimen/_17ssp" />
 
-        <TextView
-            android:id="@+id/btnLogout"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:gravity="right"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/colorwhite"
-            />
-    </TableRow>
-</TableLayout>
+    <data>
+        <variable
+            name="buttonHandler"
+            type="com.vayamtech.healthe_cord.Handler.ButtonHandler">
+
+        </variable>
+
+
+    </data>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/action_bar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:fontFamily="@font/averagesansregular"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/_17ssp" />
+
+            <TextView
+                android:id="@+id/txtLogout"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:onClick="@{buttonHandler::onClickButton}"
+                android:gravity="right"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/colorwhite"
+                />
+        </TableRow>
+    </TableLayout>
+
+
+
+</layout>
+

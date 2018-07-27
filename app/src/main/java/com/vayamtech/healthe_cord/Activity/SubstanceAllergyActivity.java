@@ -2,6 +2,8 @@ package com.vayamtech.healthe_cord.Activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,8 +19,10 @@ import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 
 public class SubstanceAllergyActivity extends BaseActivity {
+    private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,8 @@ public class SubstanceAllergyActivity extends BaseActivity {
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView = findViewById(R.id.nav_substanceAllergy);
+        setupDrawerContent(navigationView);
         //Navigation Drawer End
 
 
@@ -50,6 +56,18 @@ public class SubstanceAllergyActivity extends BaseActivity {
         fragmentTransaction.replace(R.id.fragment_SubstanceAllergy_container, sof);
         fragmentTransaction.commit();
     }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item))

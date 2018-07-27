@@ -53,12 +53,6 @@ private SimpleDateFormat dateFormatter;
         findViewsById();
         setDateTimeField();
 
-
-
-
-
-
-
   }
 
     private void setDateTimeField() {

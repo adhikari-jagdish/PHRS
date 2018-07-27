@@ -24,9 +24,9 @@ import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 
 public class DrugAllergyActivity extends BaseActivity implements drugAllergy_twoFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+    private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +48,8 @@ public class DrugAllergyActivity extends BaseActivity implements drugAllergy_two
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = findViewById(R.id.DrugAllergy_navigation);
-        nv.setNavigationItemSelectedListener(this);
+        navigationView = findViewById(R.id.DrugAllergy_navigation);
+        setupDrawerContent(navigationView);
         //Navigation Drawer End
 
         //Fragment Starts
@@ -64,7 +64,16 @@ public class DrugAllergyActivity extends BaseActivity implements drugAllergy_two
 
     }
 
-
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
+    }
 
 
     @Override
@@ -72,6 +81,11 @@ public class DrugAllergyActivity extends BaseActivity implements drugAllergy_two
 
     }
 
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

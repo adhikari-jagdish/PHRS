@@ -274,6 +274,11 @@ public class PersonalprofileActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
+    }
 }
 
 

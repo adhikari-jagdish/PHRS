@@ -18,12 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vayamtech.healthe_cord.Adapter.ImageAdapter;
+import com.vayamtech.healthe_cord.Handler.ButtonHandler;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
+import com.vayamtech.healthe_cord.databinding.ActionbarMainactivityBinding;
 import com.vayamtech.healthe_cord.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity {
     ActivityMainBinding mainBinding;
+    ActionbarMainactivityBinding actionbarMainactivityBinding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView nv;
@@ -40,6 +43,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
+        ButtonHandler buttonHandler = new ButtonHandler(MainActivity.this);
+        mainBinding.setButtonHandler(buttonHandler);
+
+
+
 
         //For fullscreen mode
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -115,9 +124,7 @@ public class MainActivity extends BaseActivity {
                 if(position == 13){
                     myIntent = new Intent(view.getContext(), LabReportActivity.class);
                 }
-                if(position == 14){
-                    myIntent = new Intent(view.getContext(), DrawerActivity.class);
-                }
+
                 startActivity(myIntent);
             }
         });

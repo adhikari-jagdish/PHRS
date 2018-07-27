@@ -52,6 +52,7 @@
                 android:layout_marginRight="@dimen/size_10"
                 android:background="@drawable/rounded_reg_edittext"
                 >
+
                 <EditText
                     android:id="@+id/etRname"
                     android:layout_width="match_parent"

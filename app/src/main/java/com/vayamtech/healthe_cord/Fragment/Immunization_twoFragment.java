@@ -18,14 +18,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
 import com.vayamtech.healthe_cord.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Immunization_twoFragment extends Fragment implements DatePickerDialog.OnDateSetListener   {
+public class Immunization_twoFragment extends Fragment {
     private EditText immunizationDate;
 
 
@@ -51,31 +50,14 @@ public class Immunization_twoFragment extends Fragment implements DatePickerDial
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                Immunization_oneFragment iof = new Immunization_oneFragment() ;
+                Immunization_oneFragment iof = new Immunization_oneFragment();
                 fragmentTransaction.replace(R.id.fragment_immunization_container, iof);
                 fragmentTransaction.commit();
             }
         });
         immunizationDate = v.findViewById(R.id.et_immunizationDate);
-        immunizationDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment newFragment = new DatePickerFragment(); // creating DialogFragment which creates DatePickerDialog
-                newFragment.setTargetFragment(Immunization_twoFragment.this,0); // Passing this fragment DatePickerFragment.
-                newFragment.show(getActivity().getFragmentManager(), "datePicker");
-            }
-        });
         return v;
-
     }
-
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        StringBuilder sb = new StringBuilder().append(dayOfMonth).append("/").append(month + 1).append("/").append(year);
-        String formattedDate = sb.toString();
-        immunizationDate.setText(formattedDate);
-    }
-
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

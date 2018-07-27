@@ -34,23 +34,48 @@
             android:name=".Activity.PersonalprofileActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:launchMode="singleTop"  />
-        <activity android:name=".Activity.BehaviouralhealthriskActivity" />
-        <activity android:name=".Activity.DrugAllergyActivity" />
-        <activity android:name=".Activity.SubstanceAllergyActivity" />
-        <activity android:name=".Activity.ImmunizationActivity" />
-        <activity android:name=".Activity.HeridiatoryConcernActivity" />
-        <activity android:name=".Activity.DiseaseHistoryActivity" />
-        <activity android:name=".Activity.TreatmentUndergoneActivity" />
-        <activity android:name=".Activity.SurgicalHistoryActivity" />
-        <activity android:name=".Activity.HealthRecordActivity" />
+        <activity android:name=".Activity.BehaviouralhealthriskActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.DrugAllergyActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.SubstanceAllergyActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.ImmunizationActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.HeridiatoryConcernActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.DiseaseHistoryActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.TreatmentUndergoneActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.SurgicalHistoryActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.HealthRecordActivity"
+            android:launchMode="singleTop"
+            />
         <activity android:name=".Activity.MainActivity"
             android:launchMode="singleTop"
             />
-        <activity android:name=".Activity.RadiologicalInvestigationActivity" />
-        <activity android:name=".Activity.PrescriptionActivity" />
-        <activity android:name=".Activity.LabReportActivity" />
-        <activity android:name=".Activity.DiagnosticInvestigationActivity" />
-        <activity android:name=".Activity.DrawerActivity"></activity>
+        <activity android:name=".Activity.RadiologicalInvestigationActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.PrescriptionActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.LabReportActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".Activity.DiagnosticInvestigationActivity"
+            android:launchMode="singleTop"
+            />
     </application>
 
 </manifest>
