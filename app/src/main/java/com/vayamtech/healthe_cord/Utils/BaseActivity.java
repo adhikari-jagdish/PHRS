@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.vayamtech.healthe_cord.Activity.BehaviouralhealthriskActivity;
 import com.vayamtech.healthe_cord.Activity.DiagnosticInvestigationActivity;
@@ -30,6 +31,7 @@ import com.vayamtech.healthe_cord.R;
 
 //*Created by Jagadish on 7/2/2018.*/
 public abstract class BaseActivity extends AppCompatActivity {
+    protected TextView txtLogout;
 
     Context context;
 
@@ -37,6 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = BaseActivity.this;
+
 
     }
 
@@ -162,8 +165,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
 
-
-
     }
+
+
 
 }

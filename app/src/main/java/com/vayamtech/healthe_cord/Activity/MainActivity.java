@@ -73,6 +73,9 @@ public class MainActivity extends BaseActivity {
         setupDrawerContent(nv);
         //Navigation Drawer End
 
+        //For Logout Button
+
+
         simpleGrid = findViewById(R.id.simpleGridView);
 
         // Instance of ImageAdapter Class
@@ -124,6 +127,9 @@ public class MainActivity extends BaseActivity {
                 if(position == 13){
                     myIntent = new Intent(view.getContext(), LabReportActivity.class);
                 }
+                if(position == 14){
+                    myIntent = new Intent(view.getContext(), ShareProfileActivity.class);
+                }
 
                 startActivity(myIntent);
             }
@@ -136,7 +142,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 selectDrawerItem(menuItem);
-
                 drawerLayout.closeDrawers();
                 return true;
             }

@@ -16,8 +16,9 @@ import android.widget.TextView;
 import com.vayamtech.healthe_cord.Fragment.DiseaseHistory_oneFragment;
 import com.vayamtech.healthe_cord.Fragment.Immunization_oneFragment;
 import com.vayamtech.healthe_cord.R;
+import com.vayamtech.healthe_cord.Utils.BaseActivity;
 
-public class DiseaseHistoryActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DiseaseHistoryActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
 
@@ -46,7 +47,7 @@ public class DiseaseHistoryActivity extends AppCompatActivity implements Navigat
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = findViewById(R.id.diseaseHistory_navigation);
-        nv.setNavigationItemSelectedListener(this);
+        setupDrawerContent(nv);
         //Navigation Drawer End
 
         //Fragment Starts
@@ -55,6 +56,17 @@ public class DiseaseHistoryActivity extends AppCompatActivity implements Navigat
         DiseaseHistory_oneFragment dhof = new DiseaseHistory_oneFragment() ;
         fragmentTransaction.replace(R.id.fragment_diseaseHistory_container, dhof);
         fragmentTransaction.commit();
+    }
+
+    private void setupDrawerContent(NavigationView nv) {
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -70,5 +82,11 @@ public class DiseaseHistoryActivity extends AppCompatActivity implements Navigat
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
     }
 }

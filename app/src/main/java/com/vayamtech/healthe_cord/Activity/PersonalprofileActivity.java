@@ -49,7 +49,7 @@ public class PersonalprofileActivity extends BaseActivity {
     private ActionBarDrawerToggle mToggle;
     private CircleImageView prof_pic;
     private static final String IMAGE_DIRECTORY ="/demo";
-    private int GALLERY = 1, CAMERA = 2, PIC_CROP = 3;
+    private int GALLERY = 1, CAMERA = 2;
     private NavigationView nv;
     Uri contentURI;
     Bitmap thumbnail;
@@ -171,95 +171,25 @@ public class PersonalprofileActivity extends BaseActivity {
         if (requestCode == GALLERY) {
             if (data != null) {
                 contentURI = data.getData();
-                performCrop();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    Toast.makeText(PersonalprofileActivity.this, "Image Set as Profile!", Toast.LENGTH_SHORT).show();
+                    prof_pic.setImageBitmap(bitmap);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(PersonalprofileActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                }
 
             }
-
-        }
-        else if (requestCode == PIC_CROP)
-        {
-            //get the returned data
-            Bundle extras = data.getExtras();
-            //get the cropped bitmap
-            Bitmap thePic = extras.getParcelable("data");
-            prof_pic.setImageBitmap(thePic);
 
         }
         else if (requestCode == CAMERA) {
             thumbnail = (Bitmap) data.getExtras().get("data");
-            performCrop();
-        }
-    }
-
-    private void performCrop() {
-        try {
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-
-                //crop
-                Intent cropIntent = new Intent("com.android.camera.action.CROP");
-                //indicate image type and Uri
-                cropIntent.setDataAndType(contentURI, "image/*");
-                //set crop properties
-                cropIntent.putExtra("crop", "true");
-                //indicate aspect of desired crop
-                cropIntent.putExtra("aspectX", 1);
-                cropIntent.putExtra("aspectY", 1);
-                //indicate output X and Y
-                cropIntent.putExtra("outputX", 256);
-                cropIntent.putExtra("outputY", 256);
-                //retrieve data on return
-                cropIntent.putExtra("return-data", true);
-                //start the activity - we handle returning in onActivityResult
-                startActivityForResult(cropIntent, PIC_CROP);
-
-
-
-                String path = saveImage(bitmap);
-                Toast.makeText(PersonalprofileActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
-                prof_pic.setImageBitmap(bitmap);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast.makeText(PersonalprofileActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
-            }
-
-        }
-        catch(ActivityNotFoundException anfe){
-            //display an error message
-            String errorMessage = "Whoops - your device doesn't support the crop action!";
-            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
-
-    public String saveImage(Bitmap myBitmap) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
-        File wallpaperDirectory = new File(
-                Environment.getExternalStorageDirectory() +IMAGE_DIRECTORY);
-        // have the object build the directory structure, if needed.
-        if (!wallpaperDirectory.exists()) {
-            wallpaperDirectory.mkdirs();
+            prof_pic.setImageBitmap(thumbnail);
+            Toast.makeText(PersonalprofileActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }
 
-        try {
-            File f = new File(wallpaperDirectory, Calendar.getInstance()
-                    .getTimeInMillis() + ".jpg");
-            f.createNewFile();
-            FileOutputStream fo = new FileOutputStream(f);
-            fo.write(bytes.toByteArray());
-            MediaScannerConnection.scanFile(this,
-                    new String[]{f.getPath()},
-                    new String[]{"image/jpeg"}, null);
-            fo.close();
-            Log.d("TAG", "File Saved::--->" + f.getAbsolutePath());
-
-            return f.getAbsolutePath();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        return "";
     }
 
     @Override

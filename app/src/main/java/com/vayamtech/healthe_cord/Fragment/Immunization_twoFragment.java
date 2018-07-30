@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Immunization_twoFragment extends Fragment {
+public class Immunization_twoFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
     private EditText immunizationDate;
 
 
@@ -56,7 +56,22 @@ public class Immunization_twoFragment extends Fragment {
             }
         });
         immunizationDate = v.findViewById(R.id.et_immunizationDate);
+        immunizationDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.setTargetFragment(Immunization_twoFragment.this, 0);
+                dialogFragment.show(getActivity().getFragmentManager(), "DatePicker");
+            }
+        });
         return v;
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        StringBuilder sb = new StringBuilder().append(dayOfMonth).append("/").append(month + 1).append("/").append(year);
+        String formattedDate = sb.toString();
+        immunizationDate.setText(formattedDate);
     }
 
     public interface OnFragmentInteractionListener {

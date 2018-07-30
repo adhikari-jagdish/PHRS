@@ -44,7 +44,7 @@ public class SubstanceAllergyActivity extends BaseActivity {
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        navigationView = findViewById(R.id.nav_substanceAllergy);
+        navigationView = findViewById(R.id.SubstanceAllergy_navigation);
         setupDrawerContent(navigationView);
         //Navigation Drawer End
 
@@ -76,5 +76,11 @@ public class SubstanceAllergyActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
     }
 }

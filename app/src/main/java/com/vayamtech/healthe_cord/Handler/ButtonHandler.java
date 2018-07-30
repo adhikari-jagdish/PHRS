@@ -61,8 +61,8 @@ public AlertDialog alertDialog;
         else if(view instanceof TextView)
         {
             switch (view.getId()){
-                case R.id.txtLogout:
-                    ((MainActivity) mcontext).gotoNext(mcontext, ForgotPasswordActivity.class, false, Bundle.EMPTY, false);
+                case R.id.txtForgotPass:
+                    ((LoginActivity) mcontext).gotoNext(mcontext, ForgotPasswordActivity.class, false, Bundle.EMPTY, false);
                     break;
 
 

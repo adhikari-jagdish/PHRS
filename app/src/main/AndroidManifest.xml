@@ -32,50 +32,51 @@
             android:label="@string/registration_title" />
         <activity
             android:name=".Activity.PersonalprofileActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:launchMode="singleTop"  />
-        <activity android:name=".Activity.BehaviouralhealthriskActivity"
             android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.DrugAllergyActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.SubstanceAllergyActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.ImmunizationActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.HeridiatoryConcernActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.DiseaseHistoryActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.TreatmentUndergoneActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.SurgicalHistoryActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.HealthRecordActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.MainActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.RadiologicalInvestigationActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.PrescriptionActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.LabReportActivity"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".Activity.DiagnosticInvestigationActivity"
-            android:launchMode="singleTop"
-            />
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.BehaviouralhealthriskActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.DrugAllergyActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.SubstanceAllergyActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.ImmunizationActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.HeridiatoryConcernActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.DiseaseHistoryActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.TreatmentUndergoneActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.SurgicalHistoryActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.HealthRecordActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.RadiologicalInvestigationActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.PrescriptionActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.LabReportActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.DiagnosticInvestigationActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".Activity.ShareProfileActivity"></activity>
     </application>
 
 </manifest>

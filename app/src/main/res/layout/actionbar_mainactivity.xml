@@ -35,7 +35,7 @@
                 android:textSize="@dimen/_17ssp" />
 
             <TextView
-                android:id="@+id/txtLogout"
+                android:id="@+id/txtTopLogout"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:text="Logout"

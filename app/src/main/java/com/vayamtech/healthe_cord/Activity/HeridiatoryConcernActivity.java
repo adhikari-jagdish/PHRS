@@ -58,7 +58,7 @@ public class HeridiatoryConcernActivity extends BaseActivity implements Navigati
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = findViewById(R.id.HeridiatoryConcern_navigation);
-        nv.setNavigationItemSelectedListener(this);
+        setupDrawerContent(nv);
         //Navigation Drawer End
 
         // Find the view pager that will allow the user to swipe between fragments
@@ -82,6 +82,17 @@ public class HeridiatoryConcernActivity extends BaseActivity implements Navigati
 
     }
 
+    private void setupDrawerContent(NavigationView nv) {
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -97,5 +108,11 @@ public class HeridiatoryConcernActivity extends BaseActivity implements Navigati
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
     }
 }

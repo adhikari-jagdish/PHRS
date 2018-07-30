@@ -47,7 +47,7 @@ public class ImmunizationActivity extends BaseActivity implements NavigationView
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = findViewById(R.id.immunization_navigation);
-        nv.setNavigationItemSelectedListener(this);
+        setupDrawerContent(nv);
         //Navigation Drawer End
 
         //Fragment Starts
@@ -59,6 +59,17 @@ public class ImmunizationActivity extends BaseActivity implements NavigationView
 
 
 
+    }
+
+    private void setupDrawerContent(NavigationView nv) {
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -75,5 +86,11 @@ public class ImmunizationActivity extends BaseActivity implements NavigationView
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
     }
 }

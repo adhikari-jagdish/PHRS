@@ -2,6 +2,8 @@ package com.vayamtech.healthe_cord.Activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -42,6 +44,9 @@ public class DiagnosticInvestigationActivity extends BaseActivity {
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        NavigationView nv = findViewById(R.id.DiagnosticInvestigation_navigation);
+        setupDrawerContent(nv);
+        //Navigation Drawer End
 
         //Fragment Starts
         FragmentManager fm = getFragmentManager();
@@ -50,6 +55,18 @@ public class DiagnosticInvestigationActivity extends BaseActivity {
         fragmentTransaction.replace(R.id.fragment_DiagnosticInvestigation_container, diagnosticInvestigation_oneFragment);
         fragmentTransaction.commit();
     }
+
+    private void setupDrawerContent(NavigationView nv) {
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectDrawerItem(item);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -59,5 +76,11 @@ public class DiagnosticInvestigationActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        gotoNext(this, MainActivity.class, false, Bundle.EMPTY, false);
+        super.onBackPressed();
     }
 }
