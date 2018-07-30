@@ -1,6 +1,8 @@
 package com.vayamtech.healthe_cord.Fragment;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -13,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,10 +25,11 @@ import com.vayamtech.healthe_cord.R;
 import static android.support.constraint.Constraints.TAG;
 
 
-public class RadiologicalInvestigation_twoFragment extends Fragment {
+public class RadiologicalInvestigation_twoFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
     private Button btn_uf_ri;
     private static final int READ_REQUEST_CODE = 42;
     EditText et_up_ti;
+    private EditText radiologicalInvestigationDate;
 
 
     public RadiologicalInvestigation_twoFragment() {
@@ -66,6 +70,15 @@ public class RadiologicalInvestigation_twoFragment extends Fragment {
             }
         });
         et_up_ti = v.findViewById(R.id.etuploadFile_radiological_inv);
+        radiologicalInvestigationDate = v.findViewById(R.id.et_RadiologicalInvestigationDate);
+        radiologicalInvestigationDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.setTargetFragment(RadiologicalInvestigation_twoFragment.this, 0);
+                dialogFragment.show(getActivity().getFragmentManager(), "DatePicker");
+            }
+        });
         return v;
     }
 
@@ -84,6 +97,13 @@ public class RadiologicalInvestigation_twoFragment extends Fragment {
 
             }
         }
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        StringBuilder sb = new StringBuilder().append(dayOfMonth).append("/").append(month + 1).append("/").append(year);
+        String formattedDate = sb.toString();
+        radiologicalInvestigationDate.setText(formattedDate);
     }
 
     public interface OnFragmentInteractionListener {
