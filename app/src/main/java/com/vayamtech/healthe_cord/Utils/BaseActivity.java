@@ -27,11 +27,16 @@ import com.vayamtech.healthe_cord.Activity.RadiologicalInvestigationActivity;
 import com.vayamtech.healthe_cord.Activity.SubstanceAllergyActivity;
 import com.vayamtech.healthe_cord.Activity.SurgicalHistoryActivity;
 import com.vayamtech.healthe_cord.Activity.TreatmentUndergoneActivity;
+import com.vayamtech.healthe_cord.Interface.IHttpresponse;
+import com.vayamtech.healthe_cord.NetworkCalls.HttpRequests;
 import com.vayamtech.healthe_cord.R;
+
+import retrofit2.Response;
 
 //*Created by Jagadish on 7/2/2018.*/
 public abstract class BaseActivity extends AppCompatActivity {
     protected TextView txtLogout;
+
 
     Context context;
 
@@ -39,6 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = BaseActivity.this;
+
 
 
     }

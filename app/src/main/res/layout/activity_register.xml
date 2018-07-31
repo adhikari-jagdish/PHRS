@@ -47,7 +47,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginLeft="@dimen/size_10"
                 android:layout_marginRight="@dimen/size_10"
                 android:background="@drawable/rounded_reg_edittext"
@@ -97,7 +97,7 @@
 
             <RelativeLayout
                 android:layout_width="@dimen/_140sdp"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginLeft="@dimen/size_10"
                 android:background="@drawable/rounded_reg_edittext"
                 >
@@ -159,62 +159,12 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_contactNo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/ll_gender"
-            android:layout_marginLeft="@dimen/size_10"
-            android:layout_marginTop="@dimen/size_30"
-            android:layout_marginRight="@dimen/size_10">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/size_25"
-                android:layout_marginBottom="@dimen/size_3"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_20"
-                    android:text="Contact Number" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
-                android:layout_marginLeft="@dimen/size_10"
-                android:layout_marginRight="@dimen/size_10"
-                android:background="@drawable/rounded_reg_edittext"
-                >
-                <EditText
-                    android:id="@+id/etRcontactNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableRight="@drawable/icon_create"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorBlack"
-                    android:inputType="number"
-                    android:paddingLeft="@dimen/_5sdp"
-                    />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-
-        <LinearLayout
+                <LinearLayout
             android:id="@+id/ll_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/ll_contactNo"
+            android:layout_below="@id/ll_gender"
             android:layout_marginLeft="@dimen/size_10"
             android:layout_marginTop="@dimen/size_20"
             android:layout_marginRight="@dimen/size_10">
@@ -237,7 +187,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginLeft="@dimen/size_10"
                 android:layout_marginRight="@dimen/size_10"
                 android:background="@drawable/rounded_reg_edittext"
@@ -256,6 +206,105 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_email"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Password" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/_5sdp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_Cpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_password"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="Confirm Password" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etCpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/_5sdp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/RnextButton"

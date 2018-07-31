@@ -39,7 +39,6 @@ public AlertDialog alertDialog;
                     else {
                         ((LoginActivity) mcontext).loginBinding.etEmailId.setError("Enter Email Id");
 
-
                     }
 
                     break;
@@ -49,9 +48,11 @@ public AlertDialog alertDialog;
                     break;
 
                 case R.id.RbtnNext:
-                    ((RegisterActivity) mcontext).gotoNext(mcontext, RegisterSecActivity.class, false, Bundle.EMPTY, false);
+                    ((RegisterActivity) mcontext).apiCall();
 
                     break;
+
+
 
 
 

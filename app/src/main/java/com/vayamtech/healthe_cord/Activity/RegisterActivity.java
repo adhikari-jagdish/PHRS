@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,18 +18,26 @@ import android.widget.TextView;
 
 
 import com.vayamtech.healthe_cord.Handler.ButtonHandler;
+import com.vayamtech.healthe_cord.Model.ResponsePojo.ResponsePojo;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
+import com.vayamtech.healthe_cord.Utils.Constants;
+import com.vayamtech.healthe_cord.Utils.SocialBaseActivity;
 import com.vayamtech.healthe_cord.databinding.ActivityRegisterBinding;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener{
+import retrofit2.Response;
+
+public class RegisterActivity extends SocialBaseActivity implements View.OnClickListener{
 public ActivityRegisterBinding registerBinding;
 private EditText regdob;
 private DatePickerDialog DatePickerDialog;
+private String TAG = ButtonHandler.class.getSimpleName();
 private SimpleDateFormat dateFormatter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +62,41 @@ private SimpleDateFormat dateFormatter;
         findViewsById();
         setDateTimeField();
 
+
+
+
   }
+  public void apiCall()
+  {
+      Map<String, String> map = new HashMap<>();
+      map.put("name", registerBinding.etRname.getText().toString());
+      map.put("dob", registerBinding.etRdob.getText().toString());
+      map.put("emailId", registerBinding.etRemailId.getText().toString());
+      map.put("password", registerBinding.etpassword.getText().toString());
+        httpRequests.getRegister(TAG, map);
+
+  }
+    @Override
+    public void httpResponse(String type, Response response) {
+        if(Constants.SUCCESS.equalsIgnoreCase(type))
+        {
+            Response<ResponsePojo> hres = response;
+            if(hres.body().getResponseStatus().getStatusCode()){
+                Log.i(TAG, "ResponseIs++++:"+hres.body().getResponseStatus().getMessageCode());
+            }
+            else {
+                Log.i(TAG, "ResponseIs++++"+hres.body().getResponseStatus().getMessageCode());
+            }
+
+        }
+        else if(Constants.FAILURE.equalsIgnoreCase(type)){
+            Log.i(TAG, "Pls try after some time+++");
+        }
+
+    }
+
+
+
 
     private void setDateTimeField() {
         regdob.setOnClickListener(this);
@@ -85,5 +128,7 @@ private SimpleDateFormat dateFormatter;
         }
 
     }
+
+
 
 }

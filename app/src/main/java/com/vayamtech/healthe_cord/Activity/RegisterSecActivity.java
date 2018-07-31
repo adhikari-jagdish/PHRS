@@ -1,5 +1,6 @@
 package com.vayamtech.healthe_cord.Activity;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,18 +13,24 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.vayamtech.healthe_cord.Handler.ButtonHandler;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
+import com.vayamtech.healthe_cord.databinding.ActivityRegisterSecBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterSecActivity extends BaseActivity {
+    public ActivityRegisterSecBinding registerSecBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_sec);
+        registerSecBinding = DataBindingUtil.setContentView(this,R.layout.activity_register_sec);
+        ButtonHandler buttonHandler = new ButtonHandler(RegisterSecActivity.this);
+        registerSecBinding.setButtonHandler(buttonHandler);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar_registration);
