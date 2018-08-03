@@ -14,7 +14,6 @@ import com.vayamtech.healthe_cord.Activity.ForgotPasswordActivity;
 import com.vayamtech.healthe_cord.Activity.LoginActivity;
 import com.vayamtech.healthe_cord.Activity.MainActivity;
 import com.vayamtech.healthe_cord.Activity.RegisterActivity;
-import com.vayamtech.healthe_cord.Activity.RegisterSecActivity;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 
@@ -44,13 +43,15 @@ public AlertDialog alertDialog;
                     break;
 
                 case R.id.btnNewUser:
-                    ((BaseActivity) mcontext).gotoNext(mcontext, RegisterActivity.class, false, Bundle.EMPTY, false);
-                    break;
+                   ((BaseActivity) mcontext).gotoNext(mcontext, RegisterActivity.class, false, Bundle.EMPTY, false);
 
-                case R.id.RbtnNext:
-                    ((RegisterActivity) mcontext).apiCall();
 
                     break;
+
+
+
+
+
 
 
 

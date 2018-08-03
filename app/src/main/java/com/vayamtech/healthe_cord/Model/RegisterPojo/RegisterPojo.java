@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 //*Created by Jagadish on 7/31/2018.*/
 public class RegisterPojo {
+
     @SerializedName("responseStatus")
     @Expose
     private ResponseStatus responseStatus;
@@ -24,10 +25,6 @@ public class RegisterPojo {
     @SerializedName("Email Id")
     @Expose
     private String emailId;
-
-    @SerializedName("Userid")
-    @Expose
-    private String userId;
 
     @SerializedName("password")
     @Expose
@@ -53,14 +50,6 @@ public class RegisterPojo {
     @Expose
     private String terms;
 
-
-    public ResponseStatus getResponseStatus() {
-        return responseStatus;
-    }
-
-    public void setResponseStatus(ResponseStatus responseStatus) {
-        this.responseStatus = responseStatus;
-    }
 
     public String getName() {
         return name;
@@ -92,14 +81,6 @@ public class RegisterPojo {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getPassword() {
@@ -149,5 +130,6 @@ public class RegisterPojo {
     public void setTerms(String terms) {
         this.terms = terms;
     }
+
 
 }

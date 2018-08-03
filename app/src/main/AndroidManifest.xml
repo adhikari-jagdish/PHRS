@@ -20,6 +20,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
         <activity android:name=".Activity.LoginActivity" />
         <activity
@@ -27,9 +29,6 @@
             android:label="Forgot Password" />
         <activity
             android:name=".Activity.RegisterActivity"
-            android:label="@string/registration_title" />
-        <activity
-            android:name=".Activity.RegisterSecActivity"
             android:label="@string/registration_title" />
         <activity
             android:name=".Activity.PersonalprofileActivity"
@@ -77,7 +76,7 @@
         <activity
             android:name=".Activity.DiagnosticInvestigationActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".Activity.ShareProfileActivity"></activity>
+        <activity android:name=".Activity.ShareProfileActivity" />
     </application>
 
 </manifest>

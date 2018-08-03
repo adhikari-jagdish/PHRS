@@ -1,18 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="buttonHandler"
-            type="com.vayamtech.healthe_cord.Handler.ButtonHandler">
-
-        </variable>
-
-    </data>
-
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vayamtech.healthe_cord.Fragment.Reg_twoFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -53,6 +43,7 @@
                 android:background="@drawable/rounded_reg_edittext"
                 >
                 <EditText
+                    android:id="@+id/etRAddress"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_margin="@dimen/_3sdp"
@@ -116,53 +107,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/sl_country"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/ll_contactNo"
-            android:layout_marginLeft="@dimen/size_10"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginRight="@dimen/size_10">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/size_25"
-                android:layout_marginBottom="@dimen/size_3"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_20"
-                    android:text="Country" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_38sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                >
-                <Spinner
-                    android:id="@+id/spinner_Country"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/country_arrays"
-                    android:paddingTop="@dimen/_8sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_8sdp"
-                    android:background="@mipmap/custom_dropdown"
-                    ></Spinner>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
 
 
         <LinearLayout
@@ -170,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/sl_country"
+            android:layout_below="@id/ll_contactNo"
             android:layout_marginLeft="@dimen/size_10"
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginRight="@dimen/size_10">
@@ -210,64 +155,16 @@
 
             </RelativeLayout>
 
-
         </LinearLayout>
 
 
+
         <LinearLayout
-            android:id="@+id/sl_city"
+            android:id="@+id/ll_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@id/sl_state"
-            android:layout_marginLeft="@dimen/size_10"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginRight="@dimen/size_10">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/size_25"
-                android:layout_marginBottom="@dimen/size_3"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_20"
-                    android:text="@string/city" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_38sdp"
-                android:layout_marginLeft="@dimen/size_10"
-                android:layout_marginRight="@dimen/size_10"
-                >
-                <Spinner
-                    android:id="@+id/spinner_City"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/city_arrays"
-                    android:paddingTop="@dimen/_8sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_8sdp"
-                    android:background="@mipmap/custom_dropdown"
-                    ></Spinner>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_pinCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/sl_city"
             android:layout_marginLeft="@dimen/size_10"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/size_10">
@@ -284,7 +181,60 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_20"
-                    android:text="PinCode" />
+                    android:text="City" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/rounded_reg_edittext"
+                >
+                <EditText
+                    android:id="@+id/etcity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_create"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/_5sdp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--end-->
+
+
+        <!--start-->
+        <LinearLayout
+            android:id="@+id/ll_pinCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ll_city"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginBottom="@dimen/size_3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_20"
+                    android:text="City" />
 
             </RelativeLayout>
 
@@ -311,10 +261,17 @@
 
         </LinearLayout>
 
+        <!--end-->
+
+
+
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ll_pinCode"
             android:background="@color/colorwhite"
             android:layout_alignParentBottom="true"
             android:gravity="bottom"
@@ -326,14 +283,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#6DE688"
-                android:onClick="@{buttonHandler::onClickButton}"
                 android:textColor="@color/colorwhite"
                 android:text="Submit" />
         </LinearLayout>
 
     </RelativeLayout>
 
-
-
-</layout>
-
+</FrameLayout>
