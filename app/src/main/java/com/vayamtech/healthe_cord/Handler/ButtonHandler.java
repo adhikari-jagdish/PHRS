@@ -33,7 +33,7 @@ public AlertDialog alertDialog;
                 case R.id.btnLogin:
                     if(!((LoginActivity) mcontext).loginBinding.etEmailId.getText().toString().equalsIgnoreCase("") && !((LoginActivity) mcontext).loginBinding.etPassword.getText().toString().equalsIgnoreCase(""))
                     {
-                        ((LoginActivity) mcontext).gotoNext(mcontext, MainActivity.class, false, Bundle.EMPTY, false);
+                        ((LoginActivity) mcontext).loginCall();
                     }
                     else {
                         ((LoginActivity) mcontext).loginBinding.etEmailId.setError("Enter Email Id");

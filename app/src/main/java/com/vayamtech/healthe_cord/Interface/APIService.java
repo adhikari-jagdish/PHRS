@@ -21,6 +21,9 @@ public interface APIService {
     @POST("register.htm")
     Call<ResponsePojo> registerUser(@Body Map<String, String> data);
 
+    @POST("login.htm")
+    Call<RegisterPojo> calllogin(@Body Map<String, String> data);
+
 
 }
 

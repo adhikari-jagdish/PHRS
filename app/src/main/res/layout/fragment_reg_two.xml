@@ -200,7 +200,7 @@
                     android:drawableRight="@drawable/icon_create"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:paddingLeft="@dimen/_5sdp"
                     />
 
@@ -234,7 +234,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_20"
-                    android:text="City" />
+                    android:text="PinCode" />
 
             </RelativeLayout>
 
@@ -265,7 +265,13 @@
 
 
 
-
+    <TextView
+        android:id="@+id/tstText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/colorBlack"
+        />
 
 
 

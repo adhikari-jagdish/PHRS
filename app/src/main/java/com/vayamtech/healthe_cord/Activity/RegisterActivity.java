@@ -1,5 +1,6 @@
 package com.vayamtech.healthe_cord.Activity;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.databinding.DataBindingUtil;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.vayamtech.healthe_cord.Fragment.Reg_oneFragment;
@@ -60,6 +62,8 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         });
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
+
+
         //Fragment Starts
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
@@ -68,7 +72,8 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         fragmentTransaction.commit();
 
 
-        String address = "delhi";
+
+       /* String address = "delhi";
         String name = "Jagdish";
         String dob = "02/01/1995";
         String gender = "Male";
@@ -76,27 +81,16 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         String password = "pass123";
         String contactNo = "9812683296";
         String cityId = "2";
-        String pinCode = "110092";
-        String terms = "Y";
-
-       //Creating a hashmap of inputs
-        Map<String, String> map = new HashMap<>();
-        map.put("p7", name);
-        map.put("p4", dob);
-        map.put("p6", gender);
-        map.put("p5", emailId);
-        map.put("p9", password);
-        map.put("p1", address);
-        map.put("p3", contactNo);
-        map.put("p2", cityId);
-        map.put("p8", pinCode);
-        map.put("p10", terms);
+        String pinCode = "110092";*/
 
 
-        sendPost(TAG, map);
+
     }
 
     private void sendPost(final String TAG, Map<String, String> data) {
+
+        Toast.makeText(getApplicationContext(), "Registering Please Wait...", Toast.LENGTH_LONG).show();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
         APIService apiService = RetrofitClient.getClient().create(APIService.class);
         Call<ResponsePojo> response = apiService.registerUser(data);
         response.enqueue(new Callback<ResponsePojo>() {
@@ -104,14 +98,13 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
             public void onResponse(Call<ResponsePojo> call, Response<ResponsePojo> response) {
                 Response<ResponsePojo> hres = response;
 
-                if(response.isSuccessful())
+                if(hres.body().getResponseStatus().getStatusCode())
                 {
-
-                    Log.i(TAG, "onResponse++++" + hres.body().getResponseStatus().getMessageCode());
+                    Toast.makeText(getApplicationContext(),hres.body().getResponseStatus().getMessageCode(), Toast.LENGTH_SHORT).show();
+                    gotoNext(RegisterActivity.this, LoginActivity.class, true, Bundle.EMPTY, true);
                 }
-
-                else {
-                    Log.i(TAG, "onResponsenotavailable++++" + response.message().toString());
+                else{
+                    Toast.makeText(getApplicationContext(), hres.body().getResponseStatus().getMessageCode(), Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -119,7 +112,9 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
             @Override
             public void onFailure(Call<ResponsePojo> call, Throwable t) {
 
-                Log.i(TAG, "onFailure++++" + call.toString());
+                String msg = t.getMessage().toString();
+
+                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -128,7 +123,36 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
 
 
     @Override
-    public void communicate(String name, String dob, String gender) {
+    public void communicate(String name, String dob, String gender, String email, String password, String address, String contactNo, String city, String pincode) {
+
+
+
+
+        String terms = "Y";
+        String cityid = "2";
+        //Creating a hashmap of inputs
+        Map<String, String> map = new HashMap<>();
+        map.put("p7", name);
+        map.put("p4", dob);
+        map.put("p6", gender);
+        map.put("p5", email);
+        map.put("p9", password);
+        map.put("p1", address);
+        map.put("p3", contactNo);
+        map.put("p2", cityid);
+        map.put("p12", city);
+        map.put("p8", pincode);
+        map.put("p10", terms);
+
+
+        sendPost(TAG, map);
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
     }
 }

@@ -50,6 +50,13 @@ public class RegisterPojo {
     @Expose
     private String terms;
 
+    public ResponseStatus getResponseStatus() {
+        return responseStatus;
+    }
+
+    public void setResponseStatus(ResponseStatus responseStatus) {
+        this.responseStatus = responseStatus;
+    }
 
     public String getName() {
         return name;

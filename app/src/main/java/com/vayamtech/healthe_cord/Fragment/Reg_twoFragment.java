@@ -7,16 +7,19 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.vayamtech.healthe_cord.Interface.FragmentToActivity;
 import com.vayamtech.healthe_cord.R;
 
 
-public class Reg_twoFragment extends Fragment {
+public class Reg_twoFragment extends Fragment implements View.OnClickListener {
 
-private EditText etAddress, etContactNo, etPincode;
+private EditText etAddress, etContactNo, etPincode, etCity;
     private FragmentToActivity mCallback;
+    private Button btnSubmit;
 
     public Reg_twoFragment() {
         // Required empty public constructor
@@ -45,24 +48,44 @@ private EditText etAddress, etContactNo, etPincode;
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_reg_two, container, false);
 
-        etAddress = v.findViewById(R.id.etRaddress);
-        String address = etAddress.getText().toString();
+        etAddress = v.findViewById(R.id.etRAddress);
 
         etContactNo = v.findViewById(R.id.etRcontactNo);
-        String contactNo = etContactNo.getText().toString();
+
+        etCity = v.findViewById(R.id.etcity);
 
         etPincode = v.findViewById(R.id.etpinCode);
-        String pincode = etPincode.getText().toString();
-
-        sendData(address, contactNo, pincode);
 
 
+
+        btnSubmit = v.findViewById(R.id.RbtnSubmit);
+        btnSubmit.setOnClickListener(this);
 
         return v;
     }
 
-    private void sendData(String address, String contactNo, String pincode) {
-        mCallback.communicate(address, contactNo, pincode);
+    private void sendData(String name, String dob, String gender, String email, String password, String address, String contactNo, String city, String pincode) {
+            mCallback.communicate(name, dob, gender, email, password,address, contactNo, city, pincode);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String address = etAddress.getText().toString();
+        String contactNo = etContactNo.getText().toString();
+        String city = etCity.getText().toString();
+        String pincode = etPincode.getText().toString();
+
+        Bundle bundle = getArguments();
+        String name = bundle.getString("Name");
+        String dob = bundle.getString("Dob");
+        String gender = bundle.getString("Gender");
+        String email = bundle.getString("EmailId");
+        String password = bundle.getString("Password");
+
+        sendData(name, dob, gender, email, password,address, contactNo, city, pincode);
+
+
+
     }
 
 
@@ -70,4 +93,6 @@ private EditText etAddress, etContactNo, etPincode;
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
