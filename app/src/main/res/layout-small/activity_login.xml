@@ -24,7 +24,7 @@
         android:id="@+id/ll_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_40sdp"
+        android:padding="@dimen/_45sdp"
         >
         <ImageView
             android:id="@+id/imgLogo"
@@ -36,12 +36,6 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/sv_main"
-        android:layout_below="@id/ll_logo"
-        android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/ll_middle"
@@ -64,14 +58,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textColorHint="@color/colorwhite"
+                android:textColor="@color/colorwhite"
+                android:inputType="textEmailAddress"
+                android:layout_margin="13dp"
                 android:background="@android:color/transparent"
                 android:hint="Email Id"
-                android:layout_margin="13dp"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="@color/colorwhite" />
+                />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +85,6 @@
                 />
 
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -178,7 +173,6 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{buttonHandler::onClickButton}"
                 android:text="Forgot Password"
-                android:textSize="@dimen/_11ssp"
                 android:layout_weight="1"
                 />
 
@@ -195,8 +189,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    </ScrollView>
 
 
 </RelativeLayout>

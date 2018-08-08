@@ -12,11 +12,11 @@
        </variable>
        
    </data>
-   
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorwhite"
+    android:background="@color/colorPrimary"
     tools:context="com.vayamtech.healthe_cord.Activity.LoginActivity"
     >
 
@@ -24,7 +24,8 @@
         android:id="@+id/ll_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_40sdp"
+        android:padding="@dimen/_30sdp"
+        android:background="@color/colorwhite"
         >
         <ImageView
             android:id="@+id/imgLogo"
@@ -36,18 +37,20 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/sv_main"
-        android:layout_below="@id/ll_logo"
-        android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content">
+<ScrollView
+    android:id="@+id/sv_main"
+    android:layout_below="@id/ll_logo"
+    android:layout_width="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_height="wrap_content">
+
+
 
     <LinearLayout
         android:id="@+id/ll_middle"
         android:layout_below="@id/ll_logo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/colorPrimary"
         >
@@ -56,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_45sdp"
             android:layout_marginRight="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/rounded_ediitext">
 
             <EditText
@@ -64,14 +67,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textColorHint="@color/colorwhite"
+                android:textColor="@color/colorwhite"
+                android:inputType="textEmailAddress"
+                android:layout_margin="13dp"
                 android:background="@android:color/transparent"
                 android:hint="Email Id"
-                android:layout_margin="13dp"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="@color/colorwhite" />
+                />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,13 +95,12 @@
 
         </RelativeLayout>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_45sdp"
             android:layout_marginRight="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/rounded_ediitext">
 
             <EditText
@@ -124,17 +128,18 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_30sdp"
                 android:background="@mipmap/login_btn"
                 android:onClick="@{buttonHandler::onClickButton}"
                 />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_alignParentBottom="true"
@@ -160,16 +165,15 @@
 
         </LinearLayout>
 
-
         <LinearLayout
+            android:layout_below="@id/ll_switch"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/size_40"
             android:layout_marginBottom="@dimen/size_20"
             android:layout_marginRight="@dimen/size_40"
-            android:gravity="bottom"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_20sdp"
             >
             <TextView
                 android:id="@+id/txtForgotPass"
@@ -194,9 +198,13 @@
 
         </LinearLayout>
 
-    </LinearLayout>
 
-    </ScrollView>
+    </LinearLayout> <!--ll_main_end-->
+
+
+
+</ScrollView>
+
 
 
 </RelativeLayout>

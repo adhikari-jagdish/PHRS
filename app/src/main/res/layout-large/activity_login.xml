@@ -12,19 +12,20 @@
        </variable>
        
    </data>
-   
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorwhite"
+    android:background="@color/colorPrimary"
     tools:context="com.vayamtech.healthe_cord.Activity.LoginActivity"
     >
 
     <LinearLayout
         android:id="@+id/ll_logo"
+        android:background="@color/colorwhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_40sdp"
+        android:padding="@dimen/_45sdp"
         >
         <ImageView
             android:id="@+id/imgLogo"
@@ -64,14 +65,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textColorHint="@color/colorwhite"
+                android:textColor="@color/colorwhite"
+                android:inputType="textEmailAddress"
+                android:layout_margin="13dp"
                 android:background="@android:color/transparent"
                 android:hint="Email Id"
-                android:layout_margin="13dp"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="@color/colorwhite" />
+                />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +92,6 @@
                 />
 
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -131,6 +133,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -153,7 +156,7 @@
                 android:textColor="@color/colorwhite"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_13ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_gravity="center"
                 android:text="Remember Password"
                 />
@@ -162,12 +165,14 @@
 
 
         <LinearLayout
+            android:layout_below="@id/ll_switch"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/size_40"
             android:layout_marginBottom="@dimen/size_20"
             android:layout_marginRight="@dimen/size_40"
+            android:layout_marginTop="@dimen/_10sdp"
             android:gravity="bottom"
             android:layout_alignParentBottom="true"
             >
@@ -195,7 +200,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
     </ScrollView>
 
 

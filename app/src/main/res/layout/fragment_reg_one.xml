@@ -5,10 +5,24 @@
     tools:context="com.vayamtech.healthe_cord.Fragment.Reg_oneFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/sv_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
 
         <LinearLayout
             android:id="@+id/ll_name"
@@ -25,13 +39,15 @@
                 android:layout_marginLeft="@dimen/size_25"
                 android:layout_marginBottom="@dimen/size_3"
                 >
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="Name"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_20"
-                    android:text="Name" />
+                    android:textSize="@dimen/size_20" />
 
             </RelativeLayout>
 
@@ -48,11 +64,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:drawableRight="@drawable/icon_create"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
                     android:inputType="text"
                     android:paddingLeft="@dimen/_5sdp"/>
+
 
             </RelativeLayout>
 
@@ -151,12 +169,7 @@
                         android:layout_height="wrap_content"
                         android:text="Female"/>
 
-
                 </RadioGroup>
-
-
-
-
 
             </LinearLayout>
 
@@ -267,6 +280,7 @@
             android:layout_below="@id/ll_password"
             android:layout_marginLeft="@dimen/size_10"
             android:layout_marginTop="@dimen/size_30"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginRight="@dimen/size_10">
 
             <RelativeLayout
@@ -293,7 +307,7 @@
                 android:background="@drawable/rounded_reg_edittext"
                 >
                 <EditText
-                    android:id="@+id/etCpassword"
+                    android:id="@+id/etRCpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -308,27 +322,35 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:id="@+id/RnextButton"
-            android:layout_width="match_parent"
-            android:layout_below="@id/ll_email"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            >
-            <Button
-                android:id="@+id/RbtnNext"
+            <LinearLayout
+                android:layout_below="@+id/ll_Cpassword"
+                android:id="@+id/RnextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#6DE688"
-                android:textColor="@color/colorwhite"
-                android:text="Next"
-                />
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/_10sdp"
+                >
+                <Button
+                    android:id="@+id/RbtnNext"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:text="Next"
+                    android:textSize="@dimen/_13ssp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorwhite"
+                    android:background="@drawable/loginbutton"
+                    />
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout><!--linear layout content-->
+
+
+        </ScrollView>
+
+
 
     </RelativeLayout>
-
 </FrameLayout>

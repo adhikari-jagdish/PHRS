@@ -33,10 +33,10 @@ public AlertDialog alertDialog;
                 case R.id.btnLogin:
                     if(!((LoginActivity) mcontext).loginBinding.etEmailId.getText().toString().equalsIgnoreCase("") && !((LoginActivity) mcontext).loginBinding.etPassword.getText().toString().equalsIgnoreCase(""))
                     {
-                        ((LoginActivity) mcontext).loginCall();
+                        ((LoginActivity) mcontext).validationCall();
                     }
                     else {
-                        ((LoginActivity) mcontext).loginBinding.etEmailId.setError("Enter Email Id");
+                       ((LoginActivity) mcontext).blankValidationCall();
 
                     }
 
@@ -47,15 +47,6 @@ public AlertDialog alertDialog;
 
 
                     break;
-
-
-
-
-
-
-
-
-
 
 
             }

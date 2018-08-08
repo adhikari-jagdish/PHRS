@@ -3,6 +3,7 @@ package com.vayamtech.healthe_cord.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 
 import com.vayamtech.healthe_cord.Utils.Constants;
+import com.vayamtech.healthe_cord.Utils.CustomProgressBar;
 import com.vayamtech.healthe_cord.databinding.ActivityRegisterBinding;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +43,10 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
     private String TAG = RegisterActivity.class.getSimpleName();
     private SimpleDateFormat dateFormatter;
     private APIService mAPIService;
+    private ProgressDialog progressDialog;
+
+    private static CustomProgressBar progressBar = new CustomProgressBar();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,12 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
 
+        /*//Instance of Progress Dialogue
+        progressDialog = new ProgressDialog(RegisterActivity.this);
+        progressDialog.setMessage("Processing Your Request...Please Wait");
+        progressDialog.setMax(100);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+*/
 
         //Fragment Starts
         FragmentManager fm = getFragmentManager();
@@ -89,13 +102,15 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
 
     private void sendPost(final String TAG, Map<String, String> data) {
 
-        Toast.makeText(getApplicationContext(), "Registering Please Wait...", Toast.LENGTH_LONG).show();
+
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
         APIService apiService = RetrofitClient.getClient().create(APIService.class);
         Call<ResponsePojo> response = apiService.registerUser(data);
         response.enqueue(new Callback<ResponsePojo>() {
             @Override
             public void onResponse(Call<ResponsePojo> call, Response<ResponsePojo> response) {
+                progressBar.getDialog().dismiss();
                 Response<ResponsePojo> hres = response;
 
                 if(hres.body().getResponseStatus().getStatusCode())
@@ -111,9 +126,8 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
 
             @Override
             public void onFailure(Call<ResponsePojo> call, Throwable t) {
-
-                String msg = t.getMessage().toString();
-
+                progressBar.getDialog().dismiss();
+                String msg = "Registration Failed...Couldnot Connect to Server";
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 
             }
@@ -124,9 +138,6 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
 
     @Override
     public void communicate(String name, String dob, String gender, String email, String password, String address, String contactNo, String city, String pincode) {
-
-
-
 
         String terms = "Y";
         String cityid = "2";
@@ -144,10 +155,8 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         map.put("p8", pincode);
         map.put("p10", terms);
 
-
         sendPost(TAG, map);
-
-
+        progressBar.show(this, "Processing Your Request...Please Wait");
     }
 
     @Override

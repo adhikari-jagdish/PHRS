@@ -26,6 +26,7 @@ public class DatePickerFragment extends DialogFragment {
         dateSetListener = (DatePickerDialog.OnDateSetListener)getTargetFragment(); // getting passed fragment
         myDatePicker = new DatePickerDialog(getActivity(), dateSetListener, year, month, day); // DatePickerDialog gets callBack listener as 2nd parameter
         // Create a new instance of DatePickerDialog and return it
+        myDatePicker.getDatePicker().setMaxDate(System.currentTimeMillis());
         return myDatePicker;
 
 

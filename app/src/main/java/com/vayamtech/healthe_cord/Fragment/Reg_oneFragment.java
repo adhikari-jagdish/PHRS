@@ -1,10 +1,12 @@
 package com.vayamtech.healthe_cord.Fragment;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -31,9 +33,10 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
     private FragmentToActivity mCallback;
     private Button btn_next;
     private EditText registrationDate;
-    private EditText etName, etDate, etEmailid, etPassword;
+    private EditText etName, etDate, etEmailid, etPassword, etCpassword;
     private RadioGroup radioGroupGender;
     private RadioButton radioSexButton;
+    AlertDialog.Builder builder;
 
     public Reg_oneFragment() {
         // Required empty public constructor
@@ -50,25 +53,16 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_reg_one, container, false);
-
         etName = v.findViewById(R.id.etRname);
-
         radioGroupGender = v.findViewById(R.id.radiogroupGender);
-
         int selectedId=radioGroupGender.getCheckedRadioButtonId();
         radioSexButton= v.findViewById(selectedId);
-
-
-
-
         etDate = v.findViewById(R.id.etRdob);
-
-
-
         etEmailid = v.findViewById(R.id.etRemailId);
         etPassword = v.findViewById(R.id.etRpassword);
+        etCpassword = v.findViewById(R.id.etRCpassword);
 
-
+        builder = new AlertDialog.Builder(getActivity());
         
         btn_next = v.findViewById(R.id.RbtnNext);
         registrationDate = v.findViewById(R.id.etRdob);
@@ -95,27 +89,86 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
     public void onClick(View v) {
 
 
+        if(etName.getText().toString().equalsIgnoreCase("") || etDate.getText().toString().equalsIgnoreCase("") || etEmailid.getText().toString().equalsIgnoreCase("") || etPassword.getText().toString().equalsIgnoreCase("") ){
+
+
+            builder.setMessage("Fill in all the input Fields");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etName.requestFocus();
+                }
+            });
+            builder.show();
+
+        }
+
+        else{
+                validate();
+        }
+
+
+    }
+
+    public void validate()
+    {
+        String vName = "^[A-Za-z\\\\s]{1,}[\\\\.]{0,1}[A-Za-z\\\\s]{0,}$";
+        String vEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String name = etName.getText().toString();
         String dob = etDate.getText().toString();
         String gender = radioSexButton.getText().toString();
         String email = etEmailid.getText().toString();
         String password = etPassword.getText().toString();
+        String cpassword = etCpassword.getText().toString();
+        if(!(name.matches(vName))){
 
+            builder.setMessage("Enter a valid name");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etName.requestFocus();
+                }
+            });
+            builder.show();
+        }
+        else if(!(email.matches(vEmail)))
+        {
+            builder.setMessage("Enter a valid email-id");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etEmailid.requestFocus();
+                }
+            });
+            builder.show();
+        }
+        else if(!(cpassword.equals(password)))
+        {
+            builder.setMessage("Password and Confirm Password don't match");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etEmailid.requestFocus();
+                }
+            });
+            builder.show();
+        }
 
+        else{
+            Bundle bundle = new Bundle();
+            bundle.putString("Name", name);
+            bundle.putString("Dob", dob);
+            bundle.putString("Gender", gender);
+            bundle.putString("EmailId", email);
+            bundle.putString("Password", password);
 
-        Bundle bundle = new Bundle();
-        bundle.putString("Name", name);
-        bundle.putString("Dob", dob);
-        bundle.putString("Gender", gender);
-        bundle.putString("EmailId", email);
-        bundle.putString("Password", password);
-
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        Reg_twoFragment reg_twoFragment = new Reg_twoFragment();
-        reg_twoFragment.setArguments(bundle);
-        fragmentTransaction.replace(R.id.fragment_registration_container, reg_twoFragment);
-        fragmentTransaction.commit();
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fm.beginTransaction();
+            Reg_twoFragment reg_twoFragment = new Reg_twoFragment();
+            reg_twoFragment.setArguments(bundle);
+            fragmentTransaction.replace(R.id.fragment_registration_container, reg_twoFragment);
+            fragmentTransaction.commit();
+        }
     }
 
     public interface OnFragmentInteractionListener {

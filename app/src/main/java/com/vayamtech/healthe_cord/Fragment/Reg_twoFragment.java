@@ -1,6 +1,8 @@
 package com.vayamtech.healthe_cord.Fragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -20,6 +22,7 @@ public class Reg_twoFragment extends Fragment implements View.OnClickListener {
 private EditText etAddress, etContactNo, etPincode, etCity;
     private FragmentToActivity mCallback;
     private Button btnSubmit;
+    AlertDialog.Builder alertDialog;
 
     public Reg_twoFragment() {
         // Required empty public constructor
@@ -56,7 +59,7 @@ private EditText etAddress, etContactNo, etPincode, etCity;
 
         etPincode = v.findViewById(R.id.etpinCode);
 
-
+        alertDialog = new AlertDialog.Builder(getActivity());
 
         btnSubmit = v.findViewById(R.id.RbtnSubmit);
         btnSubmit.setOnClickListener(this);
@@ -70,24 +73,92 @@ private EditText etAddress, etContactNo, etPincode, etCity;
 
     @Override
     public void onClick(View v) {
+
+
+        if(etAddress.getText().toString().equalsIgnoreCase("") || etContactNo.getText().toString().equalsIgnoreCase("") || etCity.getText().toString().equalsIgnoreCase("") || etPincode.getText().toString().equalsIgnoreCase(""))
+        {
+            alertDialog.setMessage("Fill in all the input Fields");
+            alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etAddress.requestFocus();
+                }
+            });
+            alertDialog.show();
+        }
+        else{
+
+            validate();
+        }
+    }
+
+    public void validate()
+    {
+        String vCity = "^[A-Za-z\\\\s]{1,}[\\\\.]{0,1}[A-Za-z\\\\s]{0,}$";
         String address = etAddress.getText().toString();
         String contactNo = etContactNo.getText().toString();
         String city = etCity.getText().toString();
         String pincode = etPincode.getText().toString();
 
-        Bundle bundle = getArguments();
-        String name = bundle.getString("Name");
-        String dob = bundle.getString("Dob");
-        String gender = bundle.getString("Gender");
-        String email = bundle.getString("EmailId");
-        String password = bundle.getString("Password");
+        if(!(address.length()<50)){
 
-        sendData(name, dob, gender, email, password,address, contactNo, city, pincode);
+            alertDialog.setMessage("Address too long");
+            alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etAddress.requestFocus();
+                }
+            });
+            alertDialog.show();
+        }
+        else if(!(contactNo.length()<11)){
+
+            alertDialog.setMessage("Enter a valid contact number");
+            alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etContactNo.requestFocus();
+                }
+            });
+            alertDialog.show();
+        }
+       else if(!(city.matches(vCity))){
+
+            alertDialog.setMessage("Enter a valid City name");
+            alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etCity.requestFocus();
+                }
+            });
+            alertDialog.show();
+        }
+        else if(!(pincode.length()<7)){
+
+            alertDialog.setMessage("Enter a valid Pincode");
+            alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etPincode.requestFocus();
+                }
+            });
+            alertDialog.show();
+        }
+
+        else{
+            Bundle bundle = getArguments();
+            String name = bundle.getString("Name");
+            String dob = bundle.getString("Dob");
+            String gender = bundle.getString("Gender");
+            String email = bundle.getString("EmailId");
+            String password = bundle.getString("Password");
+
+            sendData(name, dob, gender, email, password,address, contactNo, city, pincode);
+        }
 
 
 
     }
-
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
