@@ -47,9 +47,6 @@ public class MainActivity extends BaseActivity {
         ButtonHandler buttonHandler = new ButtonHandler(MainActivity.this);
         mainBinding.setButtonHandler(buttonHandler);
 
-
-
-
         //For fullscreen mode
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 

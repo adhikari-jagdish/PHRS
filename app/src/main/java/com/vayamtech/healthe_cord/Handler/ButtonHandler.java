@@ -44,8 +44,16 @@ public AlertDialog alertDialog;
 
                 case R.id.btnNewUser:
                    ((BaseActivity) mcontext).gotoNext(mcontext, RegisterActivity.class, false, Bundle.EMPTY, false);
+                    break;
 
-
+                case R.id.forgotPassSubmit:
+                    if(!((ForgotPasswordActivity) mcontext).forgotPasswordBinding.etEmailId.getText().toString().equalsIgnoreCase(""))
+                    {
+                        ((ForgotPasswordActivity) mcontext).forgotPwValidation();
+                    }
+                    else{
+                        ((ForgotPasswordActivity) mcontext).forgotPwblankValidation();
+                    }
                     break;
 
 

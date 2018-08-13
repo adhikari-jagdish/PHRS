@@ -64,6 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:background="@android:color/transparent"
                 android:hint="Email Id"
                 android:layout_margin="13dp"

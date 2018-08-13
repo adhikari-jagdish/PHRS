@@ -2,9 +2,13 @@ package com.vayamtech.healthe_cord.Activity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Window;
@@ -31,14 +35,20 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.luongvo.widget.iosswitchview.SwitchView;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements TextWatcher, SwitchView.OnCheckedChangeListener {
 public ActivityLoginBinding loginBinding;
     private static CustomProgressBar progressBar = new CustomProgressBar();
     private String TAG = LoginActivity.class.getSimpleName();
-    private AwesomeValidation awesomeValidation;
     private TextView txtEmailError;
     AlertDialog.Builder alert;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    private static final String PREF_NAME = "prefs";
+    private static final String KEY_REMEMBER = "remember";
+    private static final String KEY_USERID = "userid";
+    private static final String KEY_PASS = "password";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +58,28 @@ public ActivityLoginBinding loginBinding;
         ButtonHandler buttonHandler = new ButtonHandler(LoginActivity.this);
         loginBinding.setButtonHandler(buttonHandler);
 
-
-
+        //for alert dialog
         alert = new AlertDialog.Builder(LoginActivity.this);
 
-        //initializing awesomevalidation object
 
         txtEmailError = findViewById(R.id.txt_email_error);
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //Instantiate SharedPreferences
+        sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        if(sharedPreferences.getBoolean(KEY_REMEMBER, false))
+            loginBinding.switchRememberPass.setChecked(true);
+        else
+            loginBinding.switchRememberPass.setChecked(false);
+
+        loginBinding.etEmailId.setText(sharedPreferences.getString(KEY_USERID,""));
+        loginBinding.etPassword.setText(sharedPreferences.getString(KEY_PASS, ""));
+
+        loginBinding.etEmailId.addTextChangedListener(this);
+        loginBinding.etPassword.addTextChangedListener(this);
+        loginBinding.switchRememberPass.setOnCheckedChangeListener(this);
+
 
     }
 
@@ -123,33 +147,81 @@ public ActivityLoginBinding loginBinding;
     }
 
     private void loginCheck(final String TAG, Map<String, String> data) {
-        APIService apiService = RetrofitClient.getClient().create(APIService.class);
-        Call<RegisterPojo> call = apiService.calllogin(data);
-        call.enqueue(new Callback<RegisterPojo>() {
-            @Override
-            public void onResponse(Call<RegisterPojo> call, Response<RegisterPojo> response) {
-                Response<RegisterPojo> hres = response;
+        try{
+            APIService apiService = RetrofitClient.getClient().create(APIService.class);
+            Call<RegisterPojo> call = apiService.calllogin(data);
+            call.enqueue(new Callback<RegisterPojo>() {
+                @Override
+                public void onResponse(Call<RegisterPojo> call, Response<RegisterPojo> response) {
+                    Response<RegisterPojo> hres = response;
+                    progressBar.getDialog().dismiss();
 
-                progressBar.getDialog().dismiss();
-                if(hres.body().getResponseStatus().getStatusCode())
-                {
-                    Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-                    gotoNext(LoginActivity.this, MainActivity.class, true, Bundle.EMPTY, true);
+                    try{
+                        if(hres.body().getResponseStatus().getStatusCode())
+                        {
+                            Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                            gotoNext(LoginActivity.this, MainActivity.class, true, Bundle.EMPTY, true);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), hres.body().getResponseStatus().getMessageCode(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                    catch (Exception ex){
+                        Log.i(TAG, "Exception++++" + ex.toString());
+                    }
+
                 }
-                else{
-                    Toast.makeText(getApplicationContext(), hres.body().getResponseStatus().getMessageCode(), Toast.LENGTH_SHORT).show();
 
+                @Override
+                public void onFailure(Call<RegisterPojo> call, Throwable t) {
+                    // progressDialog.dismiss();
+                    progressBar.getDialog().dismiss();
+                    Toast.makeText(getApplicationContext(), "Login Failed..Couldnot Connect to Server", Toast.LENGTH_SHORT).show();
                 }
+            });
+        }
+        catch (Exception t)
+        {
+            Log.i(TAG, "Exception++++" + t.toString());
+        }
 
-            }
 
-            @Override
-            public void onFailure(Call<RegisterPojo> call, Throwable t) {
-               // progressDialog.dismiss();
-                progressBar.getDialog().dismiss();
-                Toast.makeText(getApplicationContext(), "Login Failed..Couldnot Connect to Server", Toast.LENGTH_SHORT).show();
-            }
-        });
+    }
 
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        managePrefs();
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(SwitchView switchView, boolean b) {
+        managePrefs();
+    }
+
+    private void managePrefs() {
+        if(loginBinding.switchRememberPass.isChecked()){
+            editor.putString(KEY_USERID, loginBinding.etEmailId.getText().toString().trim());
+            editor.putString(KEY_PASS, loginBinding.etPassword.getText().toString().trim());
+            editor.putBoolean(KEY_REMEMBER, true);
+            editor.apply();
+        }
+        else{
+            editor.putBoolean(KEY_REMEMBER, false);
+            editor.putString(KEY_USERID,"");
+            editor.putString(KEY_PASS,"");
+            editor.apply();
+
+        }
     }
 }

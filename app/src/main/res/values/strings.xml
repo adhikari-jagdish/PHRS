@@ -79,7 +79,6 @@
     <string name="emailerror">Please enter a valid Email-Id</string>
     <string name="passworderror">Enter Valid Password</string>
 
-
     <!--Progress Bar-->
     <string name="PleaseWait">Processing your request...Please wait</string>
 

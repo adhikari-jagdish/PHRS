@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.vayamtech.healthe_cord.Interface.FragmentToActivity;
@@ -20,6 +21,7 @@ import com.vayamtech.healthe_cord.R;
 public class Reg_twoFragment extends Fragment implements View.OnClickListener {
 
 private EditText etAddress, etContactNo, etPincode, etCity;
+
     private FragmentToActivity mCallback;
     private Button btnSubmit;
     AlertDialog.Builder alertDialog;
@@ -94,7 +96,7 @@ private EditText etAddress, etContactNo, etPincode, etCity;
 
     public void validate()
     {
-        String vCity = "^[A-Za-z\\\\s]{1,}[\\\\.]{0,1}[A-Za-z\\\\s]{0,}$";
+        String vCity = "^[a-zA-Z]+[\\-'\\s]?[a-zA-Z ]+$";
         String address = etAddress.getText().toString();
         String contactNo = etContactNo.getText().toString();
         String city = etCity.getText().toString();
@@ -164,6 +166,7 @@ private EditText etAddress, etContactNo, etPincode, etCity;
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 
 
 }

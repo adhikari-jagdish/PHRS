@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
    private static Retrofit retrofit = null;
-    public static final String BASE_URL = "http://10.32.9.160:8080/HealthEcord/service/rest/phr/";
+    public static final String BASE_URL = "http://10.32.9.160:8080/HealthEcord/service/rest/";
 
     public static Retrofit getClient() {
         if (retrofit==null) {

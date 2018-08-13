@@ -112,7 +112,7 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
 
     public void validate()
     {
-        String vName = "^[A-Za-z\\\\s]{1,}[\\\\.]{0,1}[A-Za-z\\\\s]{0,}$";
+        String vName = "^[a-zA-Z]+[\\-'\\s]?[a-zA-Z ]+$";
         String vEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String name = etName.getText().toString();
         String dob = etDate.getText().toString();
@@ -142,6 +142,17 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
             });
             builder.show();
         }
+        else if(!(password.length()>7))
+        {
+            builder.setMessage("The minimum length of Password is 8 Characters");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etPassword.requestFocus();
+                }
+            });
+            builder.show();
+        }
         else if(!(cpassword.equals(password)))
         {
             builder.setMessage("Password and Confirm Password don't match");
@@ -166,8 +177,9 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
             Reg_twoFragment reg_twoFragment = new Reg_twoFragment();
             reg_twoFragment.setArguments(bundle);
-            fragmentTransaction.replace(R.id.fragment_registration_container, reg_twoFragment);
+            fragmentTransaction.replace(R.id.fragment_registration_container, reg_twoFragment).addToBackStack(null);
             fragmentTransaction.commit();
+            fragmentTransaction.addToBackStack(null);
         }
     }
 

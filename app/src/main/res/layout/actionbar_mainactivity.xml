@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:onClick="@{buttonHandler::onClickButton}"
-                android:gravity="right"
+                android:gravity="end"
                 android:textSize="@dimen/_10ssp"
                 android:textColor="@color/colorwhite"
                 />

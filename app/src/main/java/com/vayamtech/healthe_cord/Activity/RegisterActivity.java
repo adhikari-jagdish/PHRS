@@ -10,8 +10,10 @@ import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ import com.vayamtech.healthe_cord.Fragment.Reg_oneFragment;
 import com.vayamtech.healthe_cord.Handler.ButtonHandler;
 import com.vayamtech.healthe_cord.Interface.APIService;
 import com.vayamtech.healthe_cord.Interface.FragmentToActivity;
+import com.vayamtech.healthe_cord.Model.RegisterPojo.RegisterPojo;
+import com.vayamtech.healthe_cord.Model.RegisterPojo.masterList;
 import com.vayamtech.healthe_cord.Model.ResponsePojo.ResponsePojo;
 import com.vayamtech.healthe_cord.NetworkCalls.RetrofitClient;
 import com.vayamtech.healthe_cord.R;
@@ -30,7 +34,10 @@ import com.vayamtech.healthe_cord.Utils.CustomProgressBar;
 import com.vayamtech.healthe_cord.databinding.ActivityRegisterBinding;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -44,8 +51,12 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
     private SimpleDateFormat dateFormatter;
     private APIService mAPIService;
     private ProgressDialog progressDialog;
-
+    private AlertDialog.Builder builder;
     private static CustomProgressBar progressBar = new CustomProgressBar();
+    private Spinner spinnerListState;
+
+    private ArrayList<masterList> stateList;
+    private ArrayAdapter<masterList> spinnerAdapter;
 
 
     @Override
@@ -64,7 +75,12 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if(getFragmentManager().getBackStackEntryCount() == 0) {
+                    finish();
+                }
+                else {
+                    getFragmentManager().popBackStack();
+                }
             }
         });
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
@@ -84,6 +100,8 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         fragmentTransaction.replace(R.id.fragment_registration_container, rof);
         fragmentTransaction.commit();
 
+        spinnerListState = findViewById(R.id.spinner_State);
+
 
 
        /* String address = "delhi";
@@ -96,15 +114,14 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         String cityId = "2";
         String pinCode = "110092";*/
 
+       //this method is for requesting the android spinner
+        requestMasterList();
 
 
     }
 
     private void sendPost(final String TAG, Map<String, String> data) {
-
-
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+        builder = new AlertDialog.Builder(RegisterActivity.this);
         APIService apiService = RetrofitClient.getClient().create(APIService.class);
         Call<ResponsePojo> response = apiService.registerUser(data);
         response.enqueue(new Callback<ResponsePojo>() {
@@ -135,7 +152,6 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         });
     }
 
-
     @Override
     public void communicate(String name, String dob, String gender, String email, String password, String address, String contactNo, String city, String pincode) {
 
@@ -161,7 +177,45 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if(getFragmentManager().getBackStackEntryCount() == 0) {
+            super.onBackPressed();
+        }
+        else {
+            getFragmentManager().popBackStack();
+        }
+
+    }
+
+    public void requestMasterList()
+    {
+        String state = "STATE";
+        Map<String, String> map = new HashMap<>();
+        map.put("masterName", state);
+
+        getMasterlist(TAG, map);
+    }
+
+    private void getMasterlist(String tag, Map<String, String> data) {
+        APIService apiService = RetrofitClient.getClient().create(APIService.class);
+        Call<RegisterPojo> callList = apiService.callRegistercombo(data);
+
+        callList.enqueue(new Callback<RegisterPojo>() {
+            @Override
+            public void onResponse(Call<RegisterPojo> call, Response<RegisterPojo> response) {
+                RegisterPojo registerPojo = response.body();
+                stateList = new ArrayList<>(Arrays.asList(registerPojo.getMasterLists()));
+                spinnerAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, stateList);
+                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerListState.setAdapter(spinnerAdapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<RegisterPojo> call, Throwable t) {
+
+                Log.i(TAG, "Exception++++" + t.toString());
+            }
+        });
 
     }
 }

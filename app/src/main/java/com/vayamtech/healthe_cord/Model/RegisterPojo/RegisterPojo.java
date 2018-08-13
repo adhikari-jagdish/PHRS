@@ -3,12 +3,18 @@ package com.vayamtech.healthe_cord.Model.RegisterPojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 //*Created by Jagadish on 7/31/2018.*/
 public class RegisterPojo {
 
     @SerializedName("responseStatus")
     @Expose
     private ResponseStatus responseStatus;
+
+    @SerializedName("masterList")
+    @Expose
+    private masterList[] masterLists;
 
     @SerializedName("Name")
     @Expose
@@ -138,5 +144,7 @@ public class RegisterPojo {
         this.terms = terms;
     }
 
-
+    public masterList[] getMasterLists() {
+        return masterLists;
+    }
 }
