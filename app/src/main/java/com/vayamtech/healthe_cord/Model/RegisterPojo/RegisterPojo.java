@@ -3,6 +3,7 @@ package com.vayamtech.healthe_cord.Model.RegisterPojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //*Created by Jagadish on 7/31/2018.*/
@@ -12,13 +13,13 @@ public class RegisterPojo {
     @Expose
     private ResponseStatus responseStatus;
 
-    @SerializedName("masterList")
-    @Expose
-    private masterList[] masterLists;
-
     @SerializedName("Name")
     @Expose
     private String name;
+
+    @SerializedName("masterList")
+    @Expose
+    private ArrayList<masterList> masterLists = new ArrayList<>();
 
     @SerializedName("DoB")
     @Expose
@@ -144,7 +145,11 @@ public class RegisterPojo {
         this.terms = terms;
     }
 
-    public masterList[] getMasterLists() {
+    public ArrayList<masterList> getMasterLists() {
         return masterLists;
+    }
+
+    public void setMasterLists(ArrayList<masterList> masterLists) {
+        this.masterLists = masterLists;
     }
 }

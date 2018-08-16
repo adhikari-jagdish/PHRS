@@ -71,7 +71,14 @@ public class MainActivity extends BaseActivity {
         //Navigation Drawer End
 
         //For Logout Button
-
+        View view = getSupportActionBar().getCustomView();
+        TextView logout = view.findViewById(R.id.txtTopLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoNext(MainActivity.this, LoginActivity.class, true, Bundle.EMPTY, true);
+            }
+        });
 
         simpleGrid = findViewById(R.id.simpleGridView);
 

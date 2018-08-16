@@ -158,7 +158,6 @@
                     android:id="@+id/spinner_State"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/state_arrays"
                     android:paddingTop="@dimen/_8sdp"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_8sdp"

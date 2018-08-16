@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +28,6 @@ import com.vayamtech.healthe_cord.NetworkCalls.RetrofitClient;
 import com.vayamtech.healthe_cord.R;
 import com.vayamtech.healthe_cord.Utils.BaseActivity;
 
-import com.vayamtech.healthe_cord.Utils.Constants;
 import com.vayamtech.healthe_cord.Utils.CustomProgressBar;
 import com.vayamtech.healthe_cord.databinding.ActivityRegisterBinding;
 
@@ -37,7 +35,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -53,7 +50,7 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
     private ProgressDialog progressDialog;
     private AlertDialog.Builder builder;
     private static CustomProgressBar progressBar = new CustomProgressBar();
-    private Spinner spinnerListState;
+
 
     private ArrayList<masterList> stateList;
     private ArrayAdapter<masterList> spinnerAdapter;
@@ -70,6 +67,8 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         getSupportActionBar().setCustomView(R.layout.actionbar_registration);
         TextView title = findViewById(getResources().getIdentifier("action_bar_title", "id", getPackageName()));
         title.setText("Registration");
+
+        //For Back Button
         View view = getSupportActionBar().getCustomView();
         ImageButton imageButton = view.findViewById(R.id.action_bar_back);
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -85,14 +84,6 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         });
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
-
-        /*//Instance of Progress Dialogue
-        progressDialog = new ProgressDialog(RegisterActivity.this);
-        progressDialog.setMessage("Processing Your Request...Please Wait");
-        progressDialog.setMax(100);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-*/
-
         //Fragment Starts
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
@@ -100,22 +91,7 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         fragmentTransaction.replace(R.id.fragment_registration_container, rof);
         fragmentTransaction.commit();
 
-        spinnerListState = findViewById(R.id.spinner_State);
 
-
-
-       /* String address = "delhi";
-        String name = "Jagdish";
-        String dob = "02/01/1995";
-        String gender = "Male";
-        String emailId = "j@gmail.com";
-        String password = "pass123";
-        String contactNo = "9812683296";
-        String cityId = "2";
-        String pinCode = "110092";*/
-
-       //this method is for requesting the android spinner
-        requestMasterList();
 
 
     }
@@ -153,10 +129,9 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
     }
 
     @Override
-    public void communicate(String name, String dob, String gender, String email, String password, String address, String contactNo, String city, String pincode) {
+    public void communicate(String name, String dob, String gender, String email, String password, String address, String contactNo,  String cityId, String city, String pincode) {
 
         String terms = "Y";
-        String cityid = "2";
         //Creating a hashmap of inputs
         Map<String, String> map = new HashMap<>();
         map.put("p7", name);
@@ -166,7 +141,7 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         map.put("p9", password);
         map.put("p1", address);
         map.put("p3", contactNo);
-        map.put("p2", cityid);
+        map.put("p2", cityId);
         map.put("p12", city);
         map.put("p8", pincode);
         map.put("p10", terms);
@@ -183,39 +158,6 @@ public class RegisterActivity extends BaseActivity implements FragmentToActivity
         else {
             getFragmentManager().popBackStack();
         }
-
-    }
-
-    public void requestMasterList()
-    {
-        String state = "STATE";
-        Map<String, String> map = new HashMap<>();
-        map.put("masterName", state);
-
-        getMasterlist(TAG, map);
-    }
-
-    private void getMasterlist(String tag, Map<String, String> data) {
-        APIService apiService = RetrofitClient.getClient().create(APIService.class);
-        Call<RegisterPojo> callList = apiService.callRegistercombo(data);
-
-        callList.enqueue(new Callback<RegisterPojo>() {
-            @Override
-            public void onResponse(Call<RegisterPojo> call, Response<RegisterPojo> response) {
-                RegisterPojo registerPojo = response.body();
-                stateList = new ArrayList<>(Arrays.asList(registerPojo.getMasterLists()));
-                spinnerAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, stateList);
-                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinnerListState.setAdapter(spinnerAdapter);
-
-            }
-
-            @Override
-            public void onFailure(Call<RegisterPojo> call, Throwable t) {
-
-                Log.i(TAG, "Exception++++" + t.toString());
-            }
-        });
 
     }
 }

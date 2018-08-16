@@ -37,6 +37,7 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
     private RadioGroup radioGroupGender;
     private RadioButton radioSexButton;
     AlertDialog.Builder builder;
+    private View v;
 
     public Reg_oneFragment() {
         // Required empty public constructor
@@ -52,11 +53,10 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_reg_one, container, false);
+        v = inflater.inflate(R.layout.fragment_reg_one, container, false);
         etName = v.findViewById(R.id.etRname);
         radioGroupGender = v.findViewById(R.id.radiogroupGender);
-        int selectedId=radioGroupGender.getCheckedRadioButtonId();
-        radioSexButton= v.findViewById(selectedId);
+
         etDate = v.findViewById(R.id.etRdob);
         etEmailid = v.findViewById(R.id.etRemailId);
         etPassword = v.findViewById(R.id.etRpassword);
@@ -116,6 +116,8 @@ public class Reg_oneFragment extends Fragment implements DatePickerDialog.OnDate
         String vEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String name = etName.getText().toString();
         String dob = etDate.getText().toString();
+        int selectedId=radioGroupGender.getCheckedRadioButtonId();
+        radioSexButton= v.findViewById(selectedId);
         String gender = radioSexButton.getText().toString();
         String email = etEmailid.getText().toString();
         String password = etPassword.getText().toString();

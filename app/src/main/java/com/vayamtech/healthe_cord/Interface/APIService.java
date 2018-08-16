@@ -3,8 +3,10 @@ package com.vayamtech.healthe_cord.Interface;
 
 
 import com.vayamtech.healthe_cord.Model.RegisterPojo.RegisterPojo;
+import com.vayamtech.healthe_cord.Model.RegisterPojo.masterList;
 import com.vayamtech.healthe_cord.Model.ResponsePojo.ResponsePojo;
 
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
@@ -28,7 +30,7 @@ public interface APIService {
     Call<ResponsePojo> callforgot(@Body Map<String, String> data);
 
     @POST("combo/load.htm")
-    Call<RegisterPojo> callRegistercombo(@Body Map<String, String> data);
+    Call<RegisterPojo>callRegistercombo(@Body Map<String, String> data);
 
 
 }
